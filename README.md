@@ -9,7 +9,3 @@
 When you upload your project, make sure you login to the root folder in the FTP account, your htdocs/public_html folder will be public facing and src should always be uploaded outside of the public folder.
 
 **Do not upload /node_modules.**
-
-### To do
-
-- Add composer support for PHP dependency management.
