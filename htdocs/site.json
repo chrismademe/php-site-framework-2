@@ -10,6 +10,7 @@
             "|style.css"
         ],
         "scripts": [
+            "//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js",
             "//maps.googleapis.com/maps/api/js?key=AIzaSyAeP_G3ffklPHmkCIdhkVGq0GtzhusHHls",
             "|main.js"
         ]

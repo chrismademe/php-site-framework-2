@@ -2,8 +2,8 @@
 var google_map = {
         canvas: 'map-canvas',
         location: {
-            lat: $('#'+ map_canvas +'').data('lat'),
-            lng: $('#'+ map_canvas +'').data('lng')
+            lat: $('#map-canvas').data('lat'),
+            lng: $('#map-canvas').data('lng')
         },
         marker: {
             info: '<h3>Visit us!</h3>',

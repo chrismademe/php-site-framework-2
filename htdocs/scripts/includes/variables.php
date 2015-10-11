@@ -27,6 +27,11 @@ $_['page'] = [
     'slug'      => get_page()   // Formatted page ID (e.g. services-design)
 ];
 
+// User variables
+$_['user'] = [
+    'logged_in' => false
+];
+
 /** ----------------------------------- **
  * Default page meta is set here but     *
  * should be overridden in your          *

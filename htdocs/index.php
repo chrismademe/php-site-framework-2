@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(-1);
-ini_set('display_errors', 'on');
-
 session_start();
 
 /******************
@@ -41,7 +38,10 @@ require_once('scripts/includes.php');
  * Turn on error reporting
  * if we're on localhost
  */
-
+if ( is_localhost() ) {
+    error_reporting(-1);
+    ini_set('display_errors', 'on');
+}
 
 /**
  * Instantiate model & theme
