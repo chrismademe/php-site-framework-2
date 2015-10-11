@@ -184,7 +184,7 @@ class Theme {
             break;
 
             /**
-             * If template with
+             * If template
              * where dashes replace
              * slashes exists, attempt
              * to load it.
