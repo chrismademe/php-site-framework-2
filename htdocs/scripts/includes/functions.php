@@ -78,15 +78,7 @@ function get_page() {
  * copyright notice
  */
 function this_year($value = null) {
-
-    if ($value === null) {
-        echo date('Y');
-    } elseif ($value === true) {
-        return date('Y');
-    } else {
-        echo 'Invalid value argument';
-    }
-
+    return date('Y');
 }
 
 /**
@@ -159,34 +151,6 @@ function load_asset( $asset, $append = false ) {
     }
 
     return $loaded;
-
-}
-
-/**
- * Template exists
- *
- * Check to see if specified
- * template file exists in current
- * theme
- */
-function template_exists($file) {
-
-    $template = THEME_DIR .'/'. SITE_THEME .'/'. $file . THEME_TPL_EXT;
-    return (file_exists($template) ? true : false);
-
-}
-
-/**
- * Part exists
- *
- * Check to see if specified
- * partial file exists in current
- * theme
- */
-function part_exists($file) {
-
-    $template = THEME_INC .'/'. $file;
-    return ( template_exists($template) ? true : false);
 
 }
 

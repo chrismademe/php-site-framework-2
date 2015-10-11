@@ -23,6 +23,7 @@ $_['site'] = [
 
 // Page variables
 $_['page'] = [
+    'is_home'   => is_home(),
     'path'      => $path,       // Path as it comes (e.g. services/design)
     'slug'      => get_page()   // Formatted page ID (e.g. services-design)
 ];
@@ -31,6 +32,9 @@ $_['page'] = [
 $_['user'] = [
     'logged_in' => false
 ];
+
+// Various useful variables
+$_['this_year'] = this_year();
 
 /** ----------------------------------- **
  * Default page meta is set here but     *
