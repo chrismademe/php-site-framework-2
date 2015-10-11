@@ -48,7 +48,7 @@ function is_page($id = null) {
  * homepage
  */
 function is_home() {
-    return (is_page() ? true : false);
+    return is_page();
 }
 
 /**

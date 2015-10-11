@@ -226,10 +226,23 @@ class Theme {
 
     /**
      * Clear Cache
+     *
+     * CAUTION: I recommend you
+     * you never pass an argument
+     * into this method.
+     *
+     * It WILL delete files without
+     * warning and it intended
+     * ONLY for clearing the template
+     * cache.
      */
-    public function clear_cache() {
+    public function clear_cache( $dir = false ) {
 
-        foreach ( glob($this->cache .'/*') as $file ) {
+        if ( $dir === false ) {
+            $dir = $this->cache;
+        }
+
+        foreach ( glob($dir .'/*') as $file ) {
             if ( is_dir($file) ) {
                 $this->clear_cache($file);
             } else {
