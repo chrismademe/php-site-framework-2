@@ -227,13 +227,9 @@ class Theme {
     /**
      * Clear Cache
      */
-    public function clear_cache( $dir = false ) {
+    public function clear_cache() {
 
-        if ( $dir === false ) {
-            $dir = $this->cache;
-        }
-
-        foreach ( glob($dir .'/*') as $file ) {
+        foreach ( glob($this->cache .'/*') as $file ) {
             if ( is_dir($file) ) {
                 $this->clear_cache($file);
             } else {
