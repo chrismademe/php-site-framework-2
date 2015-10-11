@@ -137,7 +137,18 @@ class Theme {
      * Render
      */
     public function render( $template, array $variables ) {
+
+        /**
+         * Store variables in object
+         * for reference if needed
+         */
+        $this->variables = $variables;
+
+        /**
+         * Render the page!
+         */
         echo $this->twig->render($template, $variables);
+        
     }
 
     /**
