@@ -105,9 +105,13 @@ class Theme {
 
         /**
          * Add debug extension
+         *
+         * Debug also clears the cache
+         * on each page load.
          */
         if ( $this->debug === true ) {
             $this->twig->addExtension(new \Twig_Extension_Debug());
+            $this->clear_cache();
         }
 
     }
@@ -148,7 +152,7 @@ class Theme {
          * Render the page!
          */
         echo $this->twig->render($template, $variables);
-        
+
     }
 
     /**
