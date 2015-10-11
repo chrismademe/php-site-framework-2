@@ -166,8 +166,8 @@ class Theme {
         switch (true) {
 
             /**
-             * If specified file is
-             * entered, load attempt
+             * If specific file is
+             * entered, attempt
              * to load it.
              */
             case $file !== false && file_exists($this->dir .'/'. $file):
