@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-0": {
+            "ContactForm": "classes/",
+            "Model": "classes/",
+            "Theme": "classes/"
+        }
+    },
+    "require": {
+        "twig/twig": "^1.22"
+    }
+}

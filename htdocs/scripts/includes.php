@@ -21,12 +21,6 @@ require_once('scripts/includes/functions.php');
 require_once('variables.php');
 
 /**
- * Load Twig
- */
-require_once('scripts/classes/Twig/Autoloader.php');
-Twig_Autoloader::register();
-
-/**
  * Autoloader
  */
-require_once('scripts/autoloader.php');
+require_once('../vendor/autoload.php');
