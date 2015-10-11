@@ -24,15 +24,15 @@
         <table cellspacing='0' cellpadding='0' border='0' style='font-family: Helvetica Neue, Arial, sans-serif; font-size: 16px; font-weight: 300; max-width: 600px; position: relative'>
             <!-- top line -->
             <tr>
-                <td colspan='2' style='padding: 16px; text-align: center;' width='160'><img id='logo' src='<?php echo SITE_DOMAIN ?>/<?php assets_dir() ?>/images/logo.png' style='height: auto;width: 180px;'></td>
+                <td colspan='2' style='padding: 16px; text-align: center;' width='160'><img id='logo' src='{{ site.domain }}/{{ site.assets }}/images/logo.png' style='height: auto;width: 180px;'></td>
             </tr>
             <!-- header -->
             <tr>
                 <td bgcolor='#ffffff' colspan='2' style='color: #555; font-family: Helvetica Neue, Arial, sans-serif; font-size: 16px; font-weight: 300; line-height: 160%; padding: 16px 36px'>
-                <strong style='font-weight: 700'>From:</strong> <?php echo $this->name ?><br>
-                <strong style='font-weight: 700'>When:</strong> <?php echo $this->time ?> on <?php echo $this->date ?><br>
-                <strong style='font-weight: 700'>Phone Number:</strong> <?php echo $this->phone ?><br>
-                <div style='padding-top: 24px;'><?php echo $this->message ?></div>
+                <strong style='font-weight: 700'>From:</strong> {{ name }}<br>
+                <strong style='font-weight: 700'>When:</strong> {{ time }} on {{ date }}<br>
+                <strong style='font-weight: 700'>Phone Number:</strong> {{ phone }}<br>
+                <div style='padding-top: 24px;'>{{ message }}</div>
                 </td>
             </tr>
         </table>

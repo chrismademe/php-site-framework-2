@@ -29,14 +29,14 @@
         <table cellspacing='0' cellpadding='0' border='0' style='font-family: Helvetica Neue, Arial, sans-serif; font-size: 16px; font-weight: 300; max-width: 600px; position: relative'>
             <!-- top line -->
             <tr>
-                <td colspan='2' style='padding: 16px; text-align: center' width='160'><img id='logo' src='<?php echo SITE_DOMAIN ?>/<?php assets_dir() ?>/images/logo.png' style='height: auto;width: 180px;'></td>
+                <td colspan='2' style='padding: 16px; text-align: center' width='160'><img id='logo' src='{{ site.domain }}/{{ site.assets }}/images/logo.png' style='height: auto;width: 180px;'></td>
             </tr>
             <!-- header -->
             <tr>
                 <td bgcolor='#ffffff' colspan='2' style='color: #555; font-family: Helvetica Neue, Arial, sans-serif; font-size: 16px; font-weight: 300; line-height: 160%; padding: 16px 36px'>
-                <p style='text-transform: capitalize;'>Dear <?php echo $this->name ?>,</p>
-                <p>Thanks for contacting <?php echo $this->site_name ?>. We'll be in touch shortly.</p>
-                <p>Kind regards,<br><?php echo $this->site_name ?></p>
+                <p style='text-transform: capitalize;'>Dear {{ name }},</p>
+                <p>Thanks for contacting {{ site.name }}. We'll be in touch shortly.</p>
+                <p>Kind regards,<br>{{ site.name }}</p>
                 </td>
             </tr>
         </table>
