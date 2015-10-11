@@ -1,4 +1,7 @@
 {
+    "config": {
+        "vendor-dir": "scripts/vendor"
+    },
     "autoload": {
         "psr-0": {
             "ContactForm": "classes/",
