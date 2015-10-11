@@ -18,7 +18,7 @@ require_once('scripts/includes/functions.php');
 /**
  * Theme variables
  */
-require_once('scripts/includes/variables.php');
+require_once('variables.php');
 
 /**
  * Load Twig
