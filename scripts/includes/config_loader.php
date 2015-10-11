@@ -6,10 +6,10 @@
 function get_config() {
 
     // Get config file
-    if ( file_exists('site.json') && is_readable('site.json') ) {
+    if ( file_exists('../site.json') && is_readable('../site.json') ) {
 
         // Get theme file
-        $config = file_get_contents('site.json');
+        $config = file_get_contents('../site.json');
 
         // Decode JSON
         $config = json_decode($config, TRUE);
