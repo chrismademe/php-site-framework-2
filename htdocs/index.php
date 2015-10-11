@@ -50,9 +50,22 @@ $model = new Model($path, $index);
 $theme = new Theme($path, $index, ['debug' => true]);
 
 /**
- * Load page
+ * If no path is set, set is as
+ * homepage.
  */
 $file = ($path != 'homepage' ? $path : 'homepage');
 
+/**
+ * Get template file
+ */
+$template = $theme->load($path);
+
+/**
+ * Load model file
+ */
 require( $model->load($path) );
-$theme->render($path, $_);
+
+/**
+ * Render the Page
+ */
+$theme->render($template, $_);

@@ -24,6 +24,14 @@ class Theme {
     private $default;
 
     /**
+     * Not Found
+     *
+     * True if the default
+     * file is loaded
+     */
+    public $not_found = false;
+
+    /**
      * Current path (URL)
      */
     private $path;
@@ -128,14 +136,14 @@ class Theme {
     /**
      * Render
      */
-    public function render( $name, array $variables, $file = false ) {
-        echo $this->get_template($name, $variables, $file);
+    public function render( $template, array $variables ) {
+        echo $this->twig->render($template, $variables);
     }
 
     /**
-     * Get Template
+     * Load Template
      */
-    public function get_template( $name, array $variables, $file = false ) {
+    public function load( $name, $file = false ) {
 
         /**
          * Find required template
@@ -196,7 +204,7 @@ class Theme {
          * Return it
          */
         if ( $template !== false && is_readable($this->dir .'/'. $template) ) {
-            return $this->twig->render($template, $variables);
+            return $template;
         }
 
     }
@@ -249,7 +257,13 @@ class Theme {
 
         }
 
-        return (isset($template) ? $template : $this->default . $this->ext);
+        // Return template
+        if ( isset($template) ) {
+            return $template;
+        } else {
+            $this->not_found = true;
+            return $this->default . $this->ext;
+        }
 
     }
 
