@@ -7,7 +7,7 @@ $baseDir = dirname(dirname($vendorDir));
 
 return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
-    'Theme' => array($baseDir . '/classes'),
-    'Model' => array($baseDir . '/classes'),
-    'ContactForm' => array($baseDir . '/classes'),
+    'Theme' => array($baseDir . '/setup/classes'),
+    'Model' => array($baseDir . '/setup/classes'),
+    'ContactForm' => array($baseDir . '/setup/classes'),
 );

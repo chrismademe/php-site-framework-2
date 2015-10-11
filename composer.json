@@ -1,12 +1,12 @@
 {
     "config": {
-        "vendor-dir": "scripts/vendor"
+        "vendor-dir": "setup/vendor"
     },
     "autoload": {
         "psr-0": {
-            "ContactForm": "classes/",
-            "Model": "classes/",
-            "Theme": "classes/"
+            "ContactForm": "setup/classes/",
+            "Model": "setup/classes/",
+            "Theme": "setup/classes/"
         }
     },
     "require": {

@@ -35,7 +35,7 @@ $index = explode('/', $path);
 /**
  * Include functions & classes
  */
-require_once('../scripts/includes.php');
+require_once('../setup/includes.php');
 
 /**
  * Turn on error reporting
