@@ -1,0 +1,5 @@
+{% if page.meta.facebook %}
+    {% for tag in page.meta.facebook %}
+    <meta property="og:{{ tag.property }}" content="{{ tag.content }}">
+    {% endfor %}
+{% endif %}

@@ -1,0 +1,5 @@
+{% if page.meta.twitter %}
+    {% for tag in page.meta.twitter %}
+    <meta name="twitter:{{ tag.name }}" content="{{ tag.content }}">
+    {% endfor %}
+{% endif %}

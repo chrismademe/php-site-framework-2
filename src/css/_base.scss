@@ -1,0 +1,13 @@
+/**
+ * _base.scss
+ *
+ * This file is used to bring
+ * framework files together.
+ */
+
+// Import CSS Reset
+@import "base/foundation";
+
+// Import Vendor styles
+@import "vendor/animate/animate",
+        "vendor/slick/slick";

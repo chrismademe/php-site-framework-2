@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ page.meta.title }}</title>
+    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
+    {% if page.canonical %}<link rel="canonical" href="{{ page.canonical }}">{% endif %}
+
+    {# Site wide stylesheets #}
+    {% if site.styles %}
+        {% for stylesheet in site.styles %}
+        <link rel="stylesheet" type="text/css" href="{{ stylesheet }}">
+        {% endfor %}
+    {% endif %}
+
+    {# Page specific stylesheets #}
+    {% if page.styles %}
+        {% for stylesheet in page.styles %}
+        <link rel="stylesheet" type="text/css" href="{{ stylesheet }}">
+        {% endfor %}
+    {% endif %}
+
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ site.assets }}/images/icons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ site.assets }}/images/icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ site.assets }}/images/icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ site.assets }}/images/icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.assets }}/images/icons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    {{ include('partials/meta-facebook.twig', ignore_missing = true) }}
+    {{ include('partials/meta-twitter.twig', ignore_missing = true) }}
+    {{ include('partials/analytics.twig', ignore_missing = true) }}
+
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="page-{{ page.slug }}">
+
+    {{ include('partials/browser-update.twig', ignore_missing = true) }}

@@ -1,0 +1,22 @@
+{# Site wide javascript #}
+{% if site.scripts %}
+    {% for script in site.scripts %}
+    <script src="{{ script }}"></script>
+    {% endfor %}
+{% endif %}
+
+{# Page specific javascript #}
+{% if page.scripts %}
+    {% for script in page.scripts %}
+    <script src="{{ script }}"></script>
+    {% endfor %}
+{% endif %}
+
+<script>document.addEventListener("DOMContentLoaded",function(){cookieChoices.showCookieConsentBar("This website use cookies to give you the best experience.","OK","Learn more","http://www.allaboutcookies.org")});</script>
+
+{% if dev.localhost %}
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+{% endif %}
+
+</body>
+</html>

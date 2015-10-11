@@ -1,0 +1,19 @@
+{
+    "author": "Chris Galbraith",
+    "name": "Website",
+    "phone": "020 123 4567",
+    "email": "chris@resknow.co.uk",
+    "address": "Address",
+    "theme": {
+        "name": "default",
+        "styles": [
+            "|style.css"
+        ],
+        "scripts": [
+            "//maps.googleapis.com/maps/api/js?key=AIzaSyAeP_G3ffklPHmkCIdhkVGq0GtzhusHHls",
+            "|main.js"
+        ]
+    },
+    "domain": "http://www.website.co.uk",
+    "analytics": "none"
+}
