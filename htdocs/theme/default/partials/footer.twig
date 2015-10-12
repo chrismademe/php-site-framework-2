@@ -1,14 +1,14 @@
 {# Site wide javascript #}
 {% if site.scripts %}
     {% for script in site.scripts %}
-    <script src="{{ script }}"></script>
+    <script src="{{ script.src }}"{% if script.async %} async{% endif %}></script>
     {% endfor %}
 {% endif %}
 
 {# Page specific javascript #}
 {% if page.scripts %}
     {% for script in page.scripts %}
-    <script src="{{ script }}"></script>
+    <script src="{{ script.src }}"{% if script.async %} async{% endif %}></script>
     {% endfor %}
 {% endif %}
 

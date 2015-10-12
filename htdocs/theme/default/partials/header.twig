@@ -14,14 +14,14 @@
     {# Site wide stylesheets #}
     {% if site.styles %}
         {% for stylesheet in site.styles %}
-        <link rel="stylesheet" type="text/css" href="{{ stylesheet }}">
+        <link rel="stylesheet" type="text/css" href="{{ stylesheet.src }}">
         {% endfor %}
     {% endif %}
 
     {# Page specific stylesheets #}
     {% if page.styles %}
         {% for stylesheet in page.styles %}
-        <link rel="stylesheet" type="text/css" href="{{ stylesheet }}">
+        <link rel="stylesheet" type="text/css" href="{{ stylesheet.src }}">
         {% endfor %}
     {% endif %}
 

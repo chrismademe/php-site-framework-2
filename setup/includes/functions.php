@@ -132,7 +132,7 @@ function load_asset( $asset, $append = false ) {
 
     if ( is_array($asset) ) {
 
-        foreach ($asset as $file) {
+        foreach ( $asset as $file ) {
             $loaded[] = load_asset($file, $append);
         }
 
@@ -141,11 +141,23 @@ function load_asset( $asset, $append = false ) {
         // Set new path
         $dir = ($append ? assets_dir() .'/'. $append : assets_dir());
 
+        // Async false by default
+        $loaded['async'] = false;
+
         // Check for local file
         if ( substr($asset, 0, 1) == '|' ) {
-            $loaded =  $dir .'/'. ltrim($asset, '|');
+            $loaded['src'] =  $dir .'/'. ltrim($asset, '|');
         } else {
-            $loaded = $asset;
+            $loaded['src'] = $asset;
+        }
+
+        // Check for Async
+        foreach ( $loaded as $asset ) {
+            $asset = explode(':', $asset);
+            if ( count($asset) > 1 ) {
+                $loaded['src'] = $asset[0];
+                $loaded['async'] = true;
+            }
         }
 
     }
