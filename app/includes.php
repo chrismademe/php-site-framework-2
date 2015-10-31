@@ -1,31 +1,18 @@
 <?php
 
-/**
- * Autoloader
- */
-require_once('../vendor/autoload.php');
+$includes = [
+    '../vendor/autoload.php',
+    '../app/config/environment.php',
+    '../app/includes/triggers.php',
+    '../app/config/loader.php',
+    '../app/config/config.php',
+    '../app/includes/functions.php',
+    '../app/config/variables.php'
+];
 
 /**
- * Triggers
+ * Load required files
  */
-require_once('../app/includes/triggers.php');
-
-/**
- * Config Loader
- */
-require_once('../app/config/loader.php');
-
-/**
- * Site Config
- */
-require_once('../app/config/config.php');
-
-/**
- * Functions
- */
-require_once('../app/includes/functions.php');
-
-/**
- * Theme variables
- */
-require_once('../app/config/variables.php');
+foreach ( $includes as $file ) {
+    require_once( $file );
+}
