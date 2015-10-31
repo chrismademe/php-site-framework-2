@@ -17,10 +17,6 @@ session_start();
  ** you can access specific pages
  ** by going to the /theme folder
  **
- ** NOTE: Content changes will
- ** most likely need to be made
- ** from the /content folder.
- **
  ******************/
 
 use Theme\Theme;
@@ -35,7 +31,7 @@ $index = explode('/', $path);
 /**
  * Include functions & classes
  */
-require_once('../setup/includes.php');
+require_once('../app/includes.php');
 
 /**
  * Turn on error reporting
@@ -71,4 +67,4 @@ require( $model->load($path) );
 /**
  * Render the Page
  */
-$theme->render($template, $_);
+$theme->render($template, $variables);
