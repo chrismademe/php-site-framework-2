@@ -9,24 +9,23 @@
  * class
  */
 
-if ( plugin_is_active('database') ) {
-
-    // Check Medoo exists
-    if ( !class_exists('medoo') ) {
-        throw new Exception('Medoo plugin requires Medoo class to be installed via Composer.');
-    }
-
-    // Create new instance of Medoo
-    $medoo = new medoo([
-        'database_type' => 'mysql',
-        'database_name' => DB_NAME,
-        'server' => DB_HOST,
-        'username' => DB_USER,
-        'password' => DB_PASS,
-        'charset' => 'utf8',
-        'port' => DB_PORT
-    ]);
-
-} else {
+// Check Database plugin is active
+if ( !plugin_is_active('database') ) {
     throw new Exception('Medoo plugin requires Database to be active');
 }
+
+// Check Medoo exists
+if ( !class_exists('medoo') ) {
+    throw new Exception('Medoo plugin requires Medoo class to be included.');
+}
+
+// Create new instance of Medoo
+$medoo = new medoo([
+    'database_type' => 'mysql',
+    'database_name' => DB_NAME,
+    'server' => DB_HOST,
+    'username' => DB_USER,
+    'password' => DB_PASS,
+    'charset' => 'utf8',
+    'port' => DB_PORT
+]);
