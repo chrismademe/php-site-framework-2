@@ -4,10 +4,9 @@
     },
     "autoload": {
         "psr-0": {
-            "ContactForm": "app/classes/",
-            "Model": "app/classes/",
-            "Theme": "app/classes/",
-            "Triggers": "app/classes/"
+            "Model": "app/core/classes/",
+            "Theme": "app/core/classes/",
+            "Triggers": "app/core/classes/"
         }
     },
     "require": {
