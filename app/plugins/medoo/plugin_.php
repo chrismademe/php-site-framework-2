@@ -19,6 +19,9 @@ if ( !class_exists('medoo') ) {
     throw new Exception('Medoo plugin requires Medoo class to be included.');
 }
 
+// Register trigger
+$triggers->addTrigger('on_medoo_init');
+
 // Create new instance of Medoo
 $medoo = new medoo([
     'database_type' => 'mysql',
@@ -29,3 +32,6 @@ $medoo = new medoo([
     'charset' => 'utf8',
     'port' => DB_PORT
 ]);
+
+// Run trigger
+$triggers->doTrigger('on_medoo_init');
