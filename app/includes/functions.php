@@ -165,3 +165,11 @@ function load_asset( $asset, $append = false ) {
     return $loaded;
 
 }
+
+/**
+ * Plugin Dir
+ * Returns plugin directory path
+ */
+ function plugin_dir() {
+     return '../app/plugins';
+ }
