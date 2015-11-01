@@ -170,6 +170,20 @@ function load_asset( $asset, $append = false ) {
  * Plugin Dir
  * Returns plugin directory path
  */
- function plugin_dir() {
-     return '../app/plugins';
- }
+function plugin_dir() {
+    return '../app/plugins';
+}
+
+/**
+ * Plugin Exists
+ */
+function plugin_exists( $plugin ) {
+    return is_dir(plugin_dir() .'/'. $plugin);
+}
+
+/**
+ * Plugin Is Active
+ */
+function plugin_is_active( $plugin ) {
+    return file_exists(plugin_dir() .'/'. $plugin .'/plugin.php');
+}

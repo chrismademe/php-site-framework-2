@@ -6,7 +6,8 @@
         "psr-0": {
             "Model": "app/core/classes/",
             "Theme": "app/core/classes/",
-            "Triggers": "app/core/classes/"
+            "Triggers": "app/core/classes/",
+            "Plugins": "app/core/classes/"
         }
     },
     "require": {

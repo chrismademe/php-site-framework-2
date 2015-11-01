@@ -1,5 +1,7 @@
 <?php
 
+use Plugins\Plugins;
+
 $includes = [
     '../app/vendor/autoload.php',
     '../app/core/environment.php',
@@ -12,7 +14,7 @@ $includes = [
 ];
 
 /**
- * Include Plugins for include
+ * Include available plugins
  */
 $includes = array_merge($includes, glob('../app/plugins/**/plugin.php'));
 
