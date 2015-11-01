@@ -15,7 +15,7 @@ $includes = [
  * Include Plugins for include
  */
 $includes = array_merge($includes, glob('../app/plugins/**/plugin.php'));
-print_r($includes);
+
 /**
  * Load required files
  */
