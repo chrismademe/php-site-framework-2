@@ -14,7 +14,7 @@ if ( !function_exists('hello_world') ) {
         global $variables; // Get Variables object
 
         // Run only on the homepage
-        if ( $variables->page['slug'] == 'homepage' ) {
+        if ( is_home() ) {
             $variables->addVar('hello_world', 'Hello World!'); // Add a new theme variable
         }
     }
