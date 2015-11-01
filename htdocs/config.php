@@ -41,8 +41,3 @@ define('FORM_RESPONDER', true);
 define('FORM_RESPONDER_SUBJECT', 'Thanks for contacting '. SITE_NAME);
 define('FORM_SUCCESS_MESSAGE', 'Thank you, your message has been sent.');
 define('FORM_FAILURE_MESSAGE', 'Sorry, something went wrong.');
-
-/*************************************
- *** Do Trigger: on_config_init    ***
- *************************************/
-$triggers->doTrigger('on_config_init');

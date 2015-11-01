@@ -42,7 +42,17 @@ $template = $theme->load($path);
  */
 require( $model->load($path) );
 
+/*************************************
+ *** Do Trigger: on_model_init     ***
+ *************************************/
+$triggers->doTrigger('on_model_init');
+
 /**
  * Render the Page
  */
 $theme->render($template, $variables);
+
+/*************************************
+ *** Do Trigger: on_theme_init     ***
+ *************************************/
+$triggers->doTrigger('on_theme_init');

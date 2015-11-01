@@ -62,8 +62,3 @@ $meta = [
 ];
 
 $variables->page['meta'] = $meta[$variables->page['slug']];
-
-/*************************************
- *** Do Trigger: on_variables_init ***
- *************************************/
-$triggers->doTrigger('on_variables_init');

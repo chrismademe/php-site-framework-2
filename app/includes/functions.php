@@ -165,8 +165,3 @@ function load_asset( $asset, $append = false ) {
     return $loaded;
 
 }
-
-/*************************************
- *** Do Trigger: on_functions_init ***
- *************************************/
-$triggers->doTrigger('on_functions_init');

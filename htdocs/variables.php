@@ -10,5 +10,3 @@
  * to avoid confusion later on.
  *
  */
-
-$variables->addVar('hello_world', 'Hello World!');
