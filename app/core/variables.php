@@ -17,8 +17,8 @@ $variables->addVar('site', [
     'name'      => SITE_NAME,
     'email'     => SITE_EMAIL,
     'domain'    => SITE_DOMAIN,
-    'styles'    => load_asset($config['theme']['styles'], 'css'),
-    'scripts'   => load_asset($config['theme']['scripts'], 'js'),
+    'styles'    => load_asset($theme['styles'], 'css'),
+    'scripts'   => load_asset($theme['scripts'], 'js'),
     'assets'    => assets_dir(),
     'ie'        => [
         'min'       => 9,

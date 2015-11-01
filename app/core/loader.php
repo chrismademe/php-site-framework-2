@@ -5,17 +5,20 @@
  */
 function get_config() {
 
+    // Config file
+    $file = THEME_DIR .'/'. SITE_THEME .'/theme.json';
+
     // Get config file
-    if ( file_exists('../app.json') && is_readable('../app.json') ) {
+    if ( file_exists($file) && is_readable($file) ) {
 
         // Get theme file
-        $config = file_get_contents('../app.json');
+        $config = file_get_contents($file);
 
         // Decode JSON
         $config = json_decode($config, TRUE);
 
         // Set required fields
-        $required = ['theme'];
+        $required = ['name', 'styles', 'scripts'];
 
         // Check for required fields
         foreach ( $required as $field ) {
@@ -30,4 +33,10 @@ function get_config() {
         throw new Exception('Your theme.json file could not be opened.');
     }
 
+}
+
+try {
+    $theme = get_config();
+} catch (Exception $e) {
+    echo $e->getMessage();
 }

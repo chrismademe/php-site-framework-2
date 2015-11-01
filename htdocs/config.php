@@ -1,39 +1,29 @@
 <?php
 
 /**
- * Get theme config
- */
-try {
-    $config = get_config();
-} catch ( Exception $e ) {
-    exit( 'Error: '. $e->getMessage() );
-}
-
-/**
  * Theme & Content
  */
-define('SITE_THEME', $config['theme']['name']); // Defined in site.json
+define('SITE_THEME', 'default');
 
 /**
  * Global Theme Settings
  */
 define('THEME_DIR', 'theme'); // Base directory
-define('THEME_INC', 'partials'); // Theme include directory
 define('THEME_ASSETS', 'assets'); // Theme assets directory
-define('THEME_TPL_EXT', '.php'); // Template file extension
+define('THEME_TPL_EXT', '.twig'); // Template file extension
 
 /**
  * Site Settings
  */
-define('SITE_DOMAIN', $config['domain']); // Full domain name including http://
-define('SITE_NAME', $config['name']); // Website / Company name
-define('SITE_EMAIL', $config['email']); // Primary email
+define('SITE_DOMAIN', 'http://localhost'); // Full domain name including http://
+define('SITE_NAME', 'Site'); // Website / Company name
+define('SITE_EMAIL', 'info@localhost'); // Primary email
 
 /**
  * Contact Form Settings
  */
 define('FORM_THEME', 'email');
-define('FORM_VERIFY_TOKEN', 'emjd3mwZv9BC');
+define('FORM_VERIFY_TOKEN', getenv('FORM_VERIFY_TOKEN'));
 define('FORM_VERIFY_SERVER', 'http://www.searchitlocal.co.uk');
 define('FORM_EMAIL', SITE_EMAIL);
 define('FORM_SUBJECT', 'New message from your website');

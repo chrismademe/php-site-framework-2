@@ -68,7 +68,7 @@ class Theme {
 
         // Default config
         $this->dir = THEME_DIR .'/'. SITE_THEME; // Template directory
-        $this->ext = '.twig'; // Template file extension
+        $this->ext = THEME_TPL_EXT; // Template file extension
         $this->default = '404'; // Default template name
         $this->cache = THEME_DIR .'/_cache'; // Cache folder
 

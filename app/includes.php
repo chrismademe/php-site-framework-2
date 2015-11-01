@@ -4,8 +4,8 @@ $includes = [
     '../app/vendor/autoload.php',
     '../app/core/environment.php',
     '../app/includes/triggers.php',
-    '../app/core/loader.php',
     'config.php',
+    '../app/core/loader.php',
     '../app/includes/functions.php',
     '../app/core/variables.php',
     'variables.php'
