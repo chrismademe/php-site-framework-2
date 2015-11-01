@@ -1,18 +1,23 @@
 <?php
 
 $includes = [
-    '../vendor/autoload.php',
-    '../app/config/environment.php',
+    '../app/vendor/autoload.php',
+    '../app/core/environment.php',
     '../app/includes/triggers.php',
-    '../app/config/loader.php',
-    '../app/config/config.php',
+    '../app/core/loader.php',
+    'config.php',
     '../app/includes/functions.php',
-    '../app/config/variables.php'
+    '../app/core/variables.php',
+    'variables.php'
 ];
 
 /**
  * Load required files
  */
 foreach ( $includes as $file ) {
-    require_once( $file );
+    if ( file_exists($file) && is_readable($file) ) {
+        require_once( $file );
+    } else {
+        throw new Exception('Required file: '. $file .' either does not exist or is not readable.');
+    }
 }

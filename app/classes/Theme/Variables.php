@@ -23,10 +23,7 @@ class Variables {
      */
     public function __construct() {
         $this->addVar([
-            'base_url' => 'http://example.com',
-            'base_dir' => '/',
-            'theme_dir' => 'themes',
-            'plugins_dir' => 'plugins'
+            'theme_dir' => THEME_DIR
         ], false, true);
     }
 
@@ -67,6 +64,15 @@ class Variables {
                 }
             }
 
+        }
+    }
+
+    /**
+     * Extend Variable
+     */
+    public function extendVar( $parent, $child, $value ) {
+        if ( property_exists($this, $parent) && is_array($this->$parent) ) {
+            $this->$parent[$child] = $value;
         }
     }
 
