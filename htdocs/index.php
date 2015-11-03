@@ -10,7 +10,7 @@
  **
  ** If you need to make changes,
  ** you can access specific pages
- ** by going to the /htdocs/theme
+ ** by going to the /app/theme
  ** folder
  **
  ******************/
@@ -18,4 +18,4 @@
 error_reporting(-1);
 ini_set('display_errors', 'on');
 
-require_once('../app/core/init.php');
+require_once('../init.php');
