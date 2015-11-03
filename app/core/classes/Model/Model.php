@@ -44,7 +44,7 @@ class Model {
     public function __construct($path, array $index, array $config = null) {
 
         // Default config
-        $this->dir = 'model'; // Template directory
+        $this->dir = APP_DIR .'/model'; // Template directory
         $this->ext = '.php'; // Template file extension
         $this->default = 'default'; // Default template name
 

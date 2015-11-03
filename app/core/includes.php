@@ -3,14 +3,14 @@
 use Plugins\Plugins;
 
 $includes = [
-    '../app/vendor/autoload.php',
-    '../app/core/environment.php',
-    '../app/core/triggers.php',
-    'config.php',
-    '../app/core/loader.php',
-    '../app/core/functions.php',
-    '../app/core/variables.php',
-    'variables.php'
+    APP_DIR .'/vendor/autoload.php',
+    APP_DIR .'/core/environment.php',
+    APP_DIR .'/core/triggers.php',
+    APP_DIR .'/config.php',
+    APP_DIR .'/core/loader.php',
+    APP_DIR .'/core/functions.php',
+    APP_DIR .'/core/variables.php',
+    APP_DIR .'/variables.php'
 ];
 
 /**

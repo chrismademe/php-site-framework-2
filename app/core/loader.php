@@ -6,7 +6,7 @@
 function get_config() {
 
     // Config file
-    $file = THEME_DIR .'/'. SITE_THEME .'/theme.json';
+    $file = APP_DIR .'/'. THEME_DIR .'/'. SITE_THEME .'/theme.json';
 
     // Get config file
     if ( file_exists($file) && is_readable($file) ) {

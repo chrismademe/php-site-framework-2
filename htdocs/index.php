@@ -18,4 +18,4 @@
 error_reporting(-1);
 ini_set('display_errors', 'on');
 
-require_once('../app/init.php');
+require_once('../app/core/init.php');

@@ -18,29 +18,29 @@ var gulp = require('gulp'),
 
     // Style Tasks
     gulp.task('styles', function() {
-        return sass('src/css/style.scss', { style: 'expanded' })
+        return sass('app/theme/'+ config.theme +'/assets/css/style.scss', { style: 'expanded' })
         .pipe(plumber())
-        .pipe(gulp.dest(''+ config.public +'/theme/'+ config.theme +'/assets/css'))
+        .pipe(gulp.dest(''+ config.public +'/assets/css'))
         .pipe(autoprefixer({cascade: false}))
         .pipe(minifycss())
-        .pipe(gulp.dest(''+ config.public +'/theme/'+ config.theme +'/assets/css'))
+        .pipe(gulp.dest(''+ config.public +'/assets/css'))
         .pipe(notify({ message: 'Styles task complete' }));
     });
 
     // Javascript Tasks
     gulp.task('scripts', function() {
-        return gulp.src(['src/js/*.js', 'src/js/vendor/*.js'], { base: '/src' })
+        return gulp.src(['app/theme/'+ config.theme +'/assets/js/*.js', 'app/theme/'+ config.theme +'/assets/js/vendor/*.js'], { base: '/app/theme/'+ config.theme +'/assets' })
         .pipe(plumber())
         .pipe(concat('main.js'))
-        .pipe(gulp.dest(''+ config.public +'/theme/'+ config.theme +'/assets/js'))
+        .pipe(gulp.dest(''+ config.public +'/assets/js'))
         .pipe(uglify())
-        .pipe(gulp.dest(''+ config.public +'/theme/'+ config.theme +'/assets/js'))
+        .pipe(gulp.dest(''+ config.public +'/assets/js'))
         .pipe(notify({ message: 'Scripts task complete' }));
     });
 
     // Housekeeping
     gulp.task('clean', function(cb) {
-        del([''+ config.public +'/theme/'+ config.theme +'/assets/css'], cb)
+        del([''+ config.public +'/assets/css'], cb)
     });
 
     // Default task
@@ -52,15 +52,15 @@ var gulp = require('gulp'),
     gulp.task('watch', function() {
 
         // Watch .scss files
-        gulp.watch(['src/css/*.scss', 'src/css/**/*.scss'], ['styles']);
+        gulp.watch(['app/theme/'+ config.theme +'/assets/css/*.scss', 'app/theme/'+ config.theme +'/assets/css/**/*.scss'], ['styles']);
 
         // Watch .js files
-        gulp.watch('src/js/*.js', ['scripts']);
+        gulp.watch('app/theme/'+ config.theme +'/assets/js/*.js', ['scripts']);
 
         // Create LiveReload server
         livereload.listen();
 
         // Watch any files in dist/, reload on change
-        gulp.watch(['theme/'+ config.theme +'/assets/css/**']).on('change', livereload.changed);
+        gulp.watch(['assets/css/**']).on('change', livereload.changed);
 
     });

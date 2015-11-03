@@ -12,9 +12,14 @@ $path = (isset($_GET['path']) ? rtrim($_GET['path'], '/') : 'homepage');
 $index = explode('/', $path);
 
 /**
+ * Set App directory
+ */
+define('APP_DIR', '../app');
+
+/**
  * Include functions & classes
  */
-require_once('../app/includes.php');
+require_once(APP_DIR .'/core/includes.php');
 
 /**
  * Instantiate model & theme
