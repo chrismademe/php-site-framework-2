@@ -7,19 +7,37 @@
  * simple contact form.
  */
 
-// Include ContactForm class
+/**
+ * Include ContactForm class
+ */
 require_once __DIR__.'/ContactForm/ContactForm.php';
 
-// Include Settings
+/**
+ * Include Settings
+ */
 require_once __DIR__.'/config.php';
 
-// Check ContactForm class is available
+/**
+ * Check ContactForm class is available
+ */
 if ( !class_exists('ContactForm\ContactForm') ) {
     throw new Exception('ContactForm class is required for the contact form plugin to function.');
 }
 
-// Run Plugin
+/**
+ * Register trigger
+ */
+$triggers->addTrigger('on_form_submit');
+
+/**
+ * Run Form Submission
+ */
 if ( is_path( FORM_HANDLER ) && is_form_data() ) {
+
+    /**
+     * Run on_form_submit trigger
+     */
+    $triggers->doTrigger('on_form_submit');
 
     /**
      * New GUMP instance
@@ -29,64 +47,58 @@ if ( is_path( FORM_HANDLER ) && is_form_data() ) {
     /**
      * Sanitize Input
      */
-    $data = $gump->sanitize( form_data() );
+    $fields = $gump->sanitize( form_data() );
 
     /**
-     * New ContactForm instance
+     * Filter Input
      */
-    $contact = new ContactForm\ContactForm();
+    $fields = $gump->filter($fields, [
+        'name'      => 'trim|sanitize_string',
+        'email'     => 'trim|sanitize_email',
+        'phone'     => 'trim|sanitize_numbers',
+        'message'   => 'trim|sanitize_string',
+        'validate'  => 'trim'
+    ]);
 
     /**
-     * Submit data
+     * Validate input
      */
-    if ( !form_field_exists('subject') ) {
-        $contact->set_response('error', 'Sorry, looks like something went wrong');
-    } elseif ($_POST) {
+    $valid = $gump->validate($fields, [
+        'name'      => 'required|alpha_numeric',
+        'email'     => 'required|valid_email',
+        'phone'     => 'required|numeric',
+        'message'   => 'required',
+        'validate'  => 'required|numeric|exact_len,1'
+    ]);
+
+    if ( $valid === true ) {
 
         /**
-         * Input data
+         * Include Spam Filter
          */
-        $data['name'] = array(
-            'id' => 'name',
-            'label' => 'Name',
-            'type' => 'text',
-            'content' => $_POST['name'],
-        );
-        $data['email'] = array(
-            'id' => 'email',
-            'label' => 'E-mail Address',
-            'type' => 'email',
-            'content' => $_POST['email'],
-        );
-        $data['phone'] = array(
-            'id' => 'phone',
-            'label' => 'Phone Number',
-            'type' => 'phone',
-            'content' => $_POST['phone'],
-        );
-        $data['message'] = array(
-            'id' => 'message',
-            'label' => 'Message',
-            'type' => 'message',
-            'content' => $_POST['message'],
-        );
-        $data['validate'] = array(
-            'id' => 'validate',
-            'label' => 'Validation',
-            'type' => 'validate',
-            'content' => $_POST['validate']
-        );
+        require_once __DIR__.'/inc/spam-filter.php';
 
         /**
-         * Submit form
+         * New ContactForm instance
          */
-        $contact->submit($data);
+        $contact = new ContactForm\ContactForm();
 
+        /**
+         * Check for spam then submit
+         */
+        if ( !is_spam($fields['message']) ) {
+            $contact->submit($fields);
+        } else {
+            $contact->setResponse('error', 'Your message has been marked as spam and not sent. If you believe this is a mistake, please call us.');
+        }
+
+        /**
+         * Get response
+         */
+        $variables->addVar('contact_response', $contact->getResponse());
+
+    } else {
+        $variables->addVar('contact_response', $gump->get_readable_errors(true));
     }
-
-    /**
-     * Return response
-     */
-    $contact->get_response();
 
 }

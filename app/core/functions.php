@@ -198,6 +198,14 @@ function form_field_exists( $field ) {
 }
 
 /**
+ * Form Field
+ */
+function form_field( $field ) {
+    $fields = form_data();
+    return (form_field_exists($field) ? $fields[$field] : false);
+}
+
+/**
  * Plugin Dir
  * Returns plugin directory path
  */

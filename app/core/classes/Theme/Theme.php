@@ -129,7 +129,7 @@ class Theme {
     /**
      * Render
      */
-    public function render( $template, Variables $variables ) {
+    public function render( $template, $variables, $print = true ) {
 
         /**
          * Store variables in object
@@ -151,7 +151,11 @@ class Theme {
         /**
          * Render the page!
          */
-        echo $this->twig->render($template, $this->variables);
+        if ( $print === true ) {
+            echo $this->twig->render($template, $this->variables);
+        } else {
+            return $this->twig->render($template, $this->variables);
+        }
 
     }
 
