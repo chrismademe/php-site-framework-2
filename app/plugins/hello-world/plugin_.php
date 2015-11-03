@@ -8,7 +8,7 @@
  * manipulate site data.
  */
 
-if ( !function_exists('hello_world') ) {
+if ( !function_exists('hello_world') ) { // Only run if another hello_world() function does not exist
 
     function hello_world() {
         global $variables; // Get Variables object

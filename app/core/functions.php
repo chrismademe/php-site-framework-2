@@ -43,6 +43,14 @@ function is_page($id = null) {
 }
 
 /**
+ * Check path
+ */
+function is_path( $check ) {
+    global $path;
+    return $check === $path;
+}
+
+/**
  * Check to see if
  * current page is
  * homepage
@@ -164,6 +172,29 @@ function load_asset( $asset, $append = false ) {
 
     return $loaded;
 
+}
+
+/**
+ * Has Form Data
+ * Checks for POST and FILE arrays
+ */
+function is_form_data() {
+    return $_POST || $_FILES;
+}
+
+/**
+ * Form Data
+ * Contains POST and FILES arrays
+ */
+function form_data() {
+    return array_merge($_POST, $_FILES);
+}
+
+/**
+ * Form Field Exists
+ */
+function form_field_exists( $field ) {
+    return isset($_POST[$field]) || isset($_FILES[$field]);
 }
 
 /**

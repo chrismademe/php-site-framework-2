@@ -1,7 +1,7 @@
 <?php
 
-/* partials/meta-facebook.twig */
-class __TwigTemplate_24aed5534aa0538933e859dfec659f42a7b742c0e24ff569e460bc18c3df952d extends Twig_Template
+/* partials/meta-twitter.twig */
+class __TwigTemplate_35ef4b3fa99c491485ee805206b5c3c8a6e357e43fd3eaecaaad3d74dc7b750e extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -16,15 +16,15 @@ class __TwigTemplate_24aed5534aa0538933e859dfec659f42a7b742c0e24ff569e460bc18c3d
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        if ($this->getAttribute($this->getAttribute((isset($context["page"]) ? $context["page"] : null), "meta", array()), "facebook", array())) {
+        if ($this->getAttribute($this->getAttribute((isset($context["page"]) ? $context["page"] : null), "meta", array()), "twitter", array())) {
             // line 2
             echo "    ";
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute((isset($context["page"]) ? $context["page"] : null), "meta", array()), "facebook", array()));
+            $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute((isset($context["page"]) ? $context["page"] : null), "meta", array()), "twitter", array()));
             foreach ($context['_seq'] as $context["_key"] => $context["tag"]) {
                 // line 3
-                echo "    <meta property=\"og:";
-                echo twig_escape_filter($this->env, $this->getAttribute($context["tag"], "property", array()), "html", null, true);
+                echo "    <meta name=\"twitter:";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["tag"], "name", array()), "html", null, true);
                 echo "\" content=\"";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["tag"], "content", array()), "html", null, true);
                 echo "\">
@@ -38,7 +38,7 @@ class __TwigTemplate_24aed5534aa0538933e859dfec659f42a7b742c0e24ff569e460bc18c3d
 
     public function getTemplateName()
     {
-        return "partials/meta-facebook.twig";
+        return "partials/meta-twitter.twig";
     }
 
     public function isTraitable()
@@ -51,9 +51,9 @@ class __TwigTemplate_24aed5534aa0538933e859dfec659f42a7b742c0e24ff569e460bc18c3d
         return array (  26 => 3,  21 => 2,  19 => 1,);
     }
 }
-/* {% if page.meta.facebook %}*/
-/*     {% for tag in page.meta.facebook %}*/
-/*     <meta property="og:{{ tag.property }}" content="{{ tag.content }}">*/
+/* {% if page.meta.twitter %}*/
+/*     {% for tag in page.meta.twitter %}*/
+/*     <meta name="twitter:{{ tag.name }}" content="{{ tag.content }}">*/
 /*     {% endfor %}*/
 /* {% endif %}*/
 /* */

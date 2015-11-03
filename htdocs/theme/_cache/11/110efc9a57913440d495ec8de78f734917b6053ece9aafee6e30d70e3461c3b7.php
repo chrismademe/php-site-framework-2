@@ -1,7 +1,7 @@
 <?php
 
 /* partials/browser-update.twig */
-class __TwigTemplate_ce5b15a13f4517bd9ff5f52d631daa327b657af2f72d96a4b9b068fed0ac504e extends Twig_Template
+class __TwigTemplate_e982562d8503b18813f496f11f0fc1aeb1e50d1599c178aa3da07487034bf7e4 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {

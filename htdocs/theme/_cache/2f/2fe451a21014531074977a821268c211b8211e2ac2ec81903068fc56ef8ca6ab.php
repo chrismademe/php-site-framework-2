@@ -1,7 +1,7 @@
 <?php
 
 /* partials/footer.twig */
-class __TwigTemplate_a39ae71f0cc77aa119e2d68fc1ece67cf9143bce0763b130384e0c1caec722b6 extends Twig_Template
+class __TwigTemplate_be76b2a57c38481e058fcc6b0b8a8ba8d9f754efa1d07e5fe6a9d06434863ba7 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {

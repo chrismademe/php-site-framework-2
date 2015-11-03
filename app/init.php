@@ -23,7 +23,7 @@ $model = new Model($path, $index);
 $theme = new Theme($path, $index);
 
 if ( is_localhost() ) {
-    $theme->debug = true;
+    $theme->set_debug(true);
 }
 
 /**

@@ -103,17 +103,6 @@ class Theme {
          */
         $this->twig = new \Twig_Environment($loader, $options);
 
-        /**
-         * Add debug extension
-         *
-         * Debug also clears the cache
-         * on each page load.
-         */
-        if ( $this->debug === true ) {
-            $this->twig->addExtension(new \Twig_Extension_Debug());
-            $this->clear_cache();
-        }
-
     }
 
     /**
@@ -147,6 +136,17 @@ class Theme {
          * for reference if needed
          */
         $this->variables = (array)$variables;
+
+        /**
+         * Add debug extension
+         *
+         * Debug also clears the cache
+         * on each page load.
+         */
+        if ( $this->debug === true ) {
+            $this->twig->addExtension(new \Twig_Extension_Debug());
+            $this->clear_cache();
+        }
 
         /**
          * Render the page!
@@ -289,6 +289,13 @@ class Theme {
             return $this->default . $this->ext;
         }
 
+    }
+
+    /**
+     * Set Debug
+     */
+    public function set_debug( $status = false ) {
+        $this->debug = $status;
     }
 
 }

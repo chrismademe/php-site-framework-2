@@ -1,5 +1,8 @@
 {{ include('partials/header.twig') }}
 
-{{ hello_world }}
+<form action="/contact/submit" method="post">
+    <input type="text" name="name">
+    <button type="submit">Submit</button>
+</form>
 
 {{ include('partials/footer.twig') }}
