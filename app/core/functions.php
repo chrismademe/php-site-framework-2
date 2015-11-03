@@ -130,7 +130,7 @@ function has_expired($date, $time = null) {
  * to your theme as a variable.
  */
 function assets_dir() {
-    return '/'. THEME_DIR .'/'. SITE_THEME .'/'. THEME_ASSETS;
+    return '/'. THEME_ASSETS;
 }
 
 /**
@@ -210,7 +210,7 @@ function form_field( $field ) {
  * Returns plugin directory path
  */
 function plugin_dir() {
-    return '../app/plugins';
+    return APP_DIR .'/plugins';
 }
 
 /**
