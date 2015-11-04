@@ -36,12 +36,6 @@ if ( is_localhost() ) {
 }
 
 /**
- * If no path is set, set is as
- * homepage.
- */
-$file = ($path != 'homepage' ? $path : 'homepage');
-
-/**
  * Get template file
  */
 $template = $theme->load($path);
