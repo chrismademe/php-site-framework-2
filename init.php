@@ -19,7 +19,11 @@ define('APP_DIR', '../app');
 /**
  * Include functions & classes
  */
-require_once(APP_DIR .'/core/includes.php');
+try {
+    require_once(APP_DIR .'/core/includes.php');
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
 
 /**
  * Instantiate model & theme

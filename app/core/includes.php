@@ -16,15 +16,21 @@ $includes = [
 /**
  * Include available plugins
  */
-$includes = array_merge($includes, glob('../app/plugins/**/plugin.php'));
+$includes = array_merge($includes, glob(APP_DIR .'/plugins/**/plugin.php'));
 
 /**
  * Load required files
  */
 foreach ( $includes as $file ) {
-    if ( file_exists($file) && is_readable($file) ) {
-        require_once( $file );
-    } else {
+
+    /**
+     * Verify that file exists and
+     * is readable.
+     */
+    if ( !file_exists($file) && !is_readable($file) ) {
         throw new Exception('Required file: '. $file .' either does not exist or is not readable.');
     }
+
+    require_once( $file );
+
 }
