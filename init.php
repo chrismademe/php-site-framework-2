@@ -32,7 +32,7 @@ $model = new Model($path, $index);
 $theme = new Theme($path, $index);
 
 if ( is_localhost() ) {
-    $theme->set_debug(true);
+    $theme->setDebug(true);
 }
 
 /**

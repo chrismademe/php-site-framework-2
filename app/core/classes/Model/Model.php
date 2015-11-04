@@ -88,13 +88,13 @@ class Model {
      * Render
      */
     public function load( $name, $file = false ) {
-        return $this->get_template($name, $file);
+        return $this->getModel($name, $file);
     }
 
     /**
      * Get Template
      */
-    public function get_template( $name, $file = false ) {
+    public function getModel( $name, $file = false ) {
 
         /**
          * Find required template
@@ -135,7 +135,7 @@ class Model {
              * folders
              */
             case $file === false && !file_exists($this->dir .'/'. $name . $this->ext):
-                $template = $this->find_template();
+                $template = $this->findModel();
             break;
 
             /**
@@ -146,7 +146,7 @@ class Model {
              * e.g.: find-this-file.php
              */
             case $file === false && !file_exists($this->dir .'/'. str_replace('/', '-', $name) . $this->ext):
-                $template = $this->find_template(true);
+                $template = $this->findModel(true);
             break;
 
         }
@@ -163,7 +163,7 @@ class Model {
     /**
      * Find Template
      */
-    private function find_template( $replace = false ) {
+    private function findModel( $replace = false ) {
 
         $implode = ($replace === false ? '/' : '-');
 

@@ -145,7 +145,7 @@ class Theme {
          */
         if ( $this->debug === true ) {
             $this->twig->addExtension(new \Twig_Extension_Debug());
-            $this->clear_cache();
+            $this->clearCache();
         }
 
         /**
@@ -203,7 +203,7 @@ class Theme {
              * folders
              */
             case $file === false && !file_exists($this->dir .'/'. $name . $this->ext):
-                $template = $this->find_template();
+                $template = $this->findTemplate();
             break;
 
             /**
@@ -214,7 +214,7 @@ class Theme {
              * e.g.: find-this-file.php
              */
             case $file === false && !file_exists($this->dir .'/'. str_replace('/', '-', $name) . $this->ext):
-                $template = $this->find_template(true);
+                $template = $this->findTemplate(true);
             break;
 
         }
@@ -240,7 +240,7 @@ class Theme {
      * ONLY for clearing the template
      * cache.
      */
-    public function clear_cache( $dir = false ) {
+    public function clearCache( $dir = false ) {
 
         if ( $dir === false ) {
             $dir = $this->cache;
@@ -248,7 +248,7 @@ class Theme {
 
         foreach ( glob($dir .'/*') as $file ) {
             if ( is_dir($file) ) {
-                $this->clear_cache($file);
+                $this->clearCache($file);
             } else {
                 unlink($file);
             }
@@ -259,7 +259,7 @@ class Theme {
     /**
      * Find Template
      */
-    private function find_template( $replace = false ) {
+    private function findTemplate( $replace = false ) {
 
         $implode = ($replace === false ? '/' : '-');
 
@@ -298,7 +298,7 @@ class Theme {
     /**
      * Set Debug
      */
-    public function set_debug( $status = false ) {
+    public function setDebug( $status = false ) {
         $this->debug = $status;
     }
 
