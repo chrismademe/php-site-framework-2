@@ -13,11 +13,7 @@ function is_localhost() {
         'localhost'
     );
 
-    if (in_array($_SERVER['REMOTE_ADDR'], $hosts)) {
-        return true;
-    } else {
-        return false;
-    }
+    return in_array($_SERVER['REMOTE_ADDR'], $hosts);
 
 }
 
@@ -30,16 +26,9 @@ function is_localhost() {
  * Will check for homepage
  * if no argument
  */
-function is_page($id = null) {
-
-    $id = (is_null($id) ? 'homepage' : $id);
-
-    if ($id == get_page()) {
-        return true;
-    } else {
-        return false;
-    }
-
+function is_page( $check = null ) {
+    $page = (is_null($check) ? 'homepage' : $check);
+    return $page == get_page();
 }
 
 /**
@@ -70,14 +59,7 @@ function get_page() {
     // Remove slashes
     $uri = str_replace('/', '-', ltrim($path, '/'));
 
-    // Get page URI
-    if ($uri == '') {
-        $page = 'index';
-    } else {
-        $page = $uri;
-    }
-
-    return $page;
+    return $uri;
 
 }
 
@@ -99,17 +81,14 @@ function this_year($value = null) {
 function has_expired($date, $time = null) {
 
     // Set time
-    if (is_null($time))
+    if (is_null($time)) {
         $time = '00:00';
+    }
 
     // Set time and date
     $exp = $date . $time;
 
-    if (date('dmYHi') >= $exp) {
-        return true;
-    } else {
-        return false;
-    }
+    return date('dmYHi') >= $exp;
 
 }
 
