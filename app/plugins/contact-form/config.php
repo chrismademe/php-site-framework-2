@@ -1,5 +1,6 @@
 <?php
 
+define('FORM_EMAIL_LOGO', getenv('FORM_EMAIL_LOGO');
 define('FORM_HANDLER', getenv('FORM_HANDLER'));
 define('FORM_THEME', 'email');
 define('FORM_VERIFY_TOKEN', getenv('FORM_VERIFY_TOKEN'));

@@ -51,7 +51,12 @@ class ContactForm
             /**
              * Utility variables
              */
-            $_['site_name'] = SITE_NAME;
+            $_['site'] = [
+                'name'    => SITE_NAME,
+                'domain'  => SITE_DOMAIN,
+                'assets'  => assets_dir()
+            ];
+            
             $_['date'] = date("l, F j, Y");
             $_['time'] = date("g:i a");
 
