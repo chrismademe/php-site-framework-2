@@ -35,7 +35,7 @@
  * Set meta array for
  * 404 page
  */
-if ( $theme->not_found !== false ) {
+if ( $theme->notFound() ) {
     $variables->page['meta'] = [
         'title' => '404. Page Not Found | '. SITE_NAME,
         'description' => 'The page you were looking for could not be found.',

@@ -8,6 +8,13 @@
  */
 
 /**
+ * Check current theme supports Contact form
+ */
+if ( !in_array('contact-form', $variables->theme['supports']) ) {
+    throw new Exception('Warning: You have not declared support for Contact Form in your theme, some features may not work as intended.');
+}
+
+/**
  * Include ContactForm class
  */
 require_once __DIR__.'/ContactForm/ContactForm.php';

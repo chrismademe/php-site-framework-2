@@ -302,4 +302,11 @@ class Theme {
         $this->debug = $status;
     }
 
+    /**
+     * Return Not Found status
+     */
+    public function notFound() {
+        return $this->not_found;
+    }
+
 }

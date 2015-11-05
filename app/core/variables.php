@@ -12,6 +12,11 @@ $variables->addVar('dev', [
     'localhost' => is_localhost()
 ]);
 
+// Theme
+$variables->addVar('theme', [
+    'supports'  => (array_key_exists('supports', $theme) ? $theme['supports'] : [])
+]);
+
 // Global Site Variables
 $variables->addVar('site', [
     'name'      => SITE_NAME,
