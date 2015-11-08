@@ -7,4 +7,5 @@ $baseDir = dirname(dirname($vendorDir));
 
 return array(
     $vendorDir . '/wixel/gump/gump.class.php',
+    $vendorDir . '/catfan/medoo/medoo.php',
 );

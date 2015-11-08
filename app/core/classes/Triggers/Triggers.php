@@ -78,9 +78,7 @@ class Triggers {
                 $this->addAction($trigger, $act);
             }
         } else {
-            if ( in_array($trigger, $this->triggers) ) {
-                $this->actions[$trigger][] = $action;
-            }
+            $this->actions[$trigger][] = $action;
         }
     }
 
