@@ -1,0 +1,5 @@
+<?php
+
+$SocialCentre = [
+    'page'  => 'blog'
+];

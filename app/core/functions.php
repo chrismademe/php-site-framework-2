@@ -40,6 +40,16 @@ function is_path( $check ) {
 }
 
 /**
+ * Is Index
+ *
+ * Check the first index
+ */
+function is_index( $check = null ) {
+    global $index;
+    return $check == $index[0];
+}
+
+/**
  * Check to see if
  * current page is
  * homepage
