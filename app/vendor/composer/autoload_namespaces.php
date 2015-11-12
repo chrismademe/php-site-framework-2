@@ -10,5 +10,5 @@ return array(
     'Triggers' => array($baseDir . '/app/core/classes'),
     'Theme' => array($baseDir . '/app/core/classes'),
     'Plugins' => array($baseDir . '/app/core/classes'),
-    'Model' => array($baseDir . '/app/core/classes'),
+    'Controller' => array($baseDir . '/app/core/classes'),
 );

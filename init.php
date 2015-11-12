@@ -3,7 +3,7 @@
 session_start();
 
 use Theme\Theme;
-use Model\Model;
+use Controller\Controller;
 
 /**
  * Set Path
@@ -26,9 +26,9 @@ try {
 }
 
 /**
- * Instantiate model & theme
+ * Instantiate Controller & theme
  */
-$model = new Model($path, $index);
+$controller = new Controller($path, $index);
 $theme = new Theme($path, $index);
 
 if ( is_localhost() ) {
@@ -41,14 +41,14 @@ if ( is_localhost() ) {
 $template = $theme->load($path);
 
 /**
- * Load model file
+ * Load Controller file
  */
-require( $model->load($path) );
+require( $controller->load($path) );
 
-/*************************************
- *** Do Trigger: on_model_init     ***
- *************************************/
-$triggers->doTrigger('on_model_init');
+/**************************************
+ *** Do Trigger: on_controller_init ***
+ **************************************/
+$triggers->doTrigger('on_controller_init');
 
 /**
  * Render the Page

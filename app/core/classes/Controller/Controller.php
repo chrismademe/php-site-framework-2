@@ -1,8 +1,8 @@
 <?php
 
-namespace Model;
+namespace Controller;
 
-class Model {
+class Controller {
 
     /**
      * Template directory
@@ -44,7 +44,7 @@ class Model {
     public function __construct($path, array $index, array $config = null) {
 
         // Default config
-        $this->dir = APP_DIR .'/model'; // Template directory
+        $this->dir = APP_DIR .'/controller'; // Template directory
         $this->ext = '.php'; // Template file extension
         $this->default = 'default'; // Default template name
 
@@ -88,13 +88,13 @@ class Model {
      * Render
      */
     public function load( $name, $file = false ) {
-        return $this->getModel($name, $file);
+        return $this->getController($name, $file);
     }
 
     /**
      * Get Template
      */
-    public function getModel( $name, $file = false ) {
+    public function getController( $name, $file = false ) {
 
         /**
          * Find required template
@@ -135,7 +135,7 @@ class Model {
              * folders
              */
             case $file === false && !file_exists($this->dir .'/'. $name . $this->ext):
-                $template = $this->findModel();
+                $template = $this->findController();
             break;
 
             /**
@@ -146,7 +146,7 @@ class Model {
              * e.g.: find-this-file.php
              */
             case $file === false && !file_exists($this->dir .'/'. str_replace('/', '-', $name) . $this->ext):
-                $template = $this->findModel(true);
+                $template = $this->findController(true);
             break;
 
         }
@@ -163,7 +163,7 @@ class Model {
     /**
      * Find Template
      */
-    private function findModel( $replace = false ) {
+    private function findController( $replace = false ) {
 
         $implode = ($replace === false ? '/' : '-');
 
