@@ -2,3 +2,4 @@
 /node_modules
 /app/vendor
 _cache
+.env
