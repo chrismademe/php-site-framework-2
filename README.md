@@ -1,9 +1,13 @@
 # PHP Site Framework 2
 
-1. Copy this folder to your project root.
+1. Clone this repo to your project folder
 2. Edit package.json with your project name and description.
-3. Open Terminal and run "npm install" from your project folder to install package dependencies. This can take a while.
-4. Create something awesome!
+
+### Install Dependencies
+```
+npm install
+composer install
+```
 
 ## Important
 When you upload your project, make sure you login to the root folder in the FTP account, your htdocs/public_html folder will be public facing and src should always be uploaded outside of the public folder.
