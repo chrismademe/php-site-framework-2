@@ -6,12 +6,6 @@ use Theme\Theme;
 use Controller\Controller;
 
 /**
- * Set Path
- */
-$path = (isset($_GET['path']) ? rtrim($_GET['path'], '/') : 'homepage');
-$index = explode('/', $path);
-
-/**
  * Set App directory
  */
 define('APP_DIR', '../app');
@@ -24,6 +18,12 @@ try {
 } catch (Exception $e) {
     echo '<div style="padding: 12px; background-color: #e6db40; color: white; text-align: center">'. $e->getMessage() .'</div>';
 }
+
+/**
+ * Set Path
+ */
+$path   = $router->getRoute();
+$index  = $router->getIndex();
 
 /**
  * Instantiate Controller & theme

@@ -9,6 +9,7 @@ return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'Triggers' => array($baseDir . '/app/core/classes'),
     'Theme' => array($baseDir . '/app/core/classes'),
+    'Router' => array($baseDir . '/app/core/classes'),
     'Plugins' => array($baseDir . '/app/core/classes'),
     'Controller' => array($baseDir . '/app/core/classes'),
 );
