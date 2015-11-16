@@ -18,7 +18,11 @@ function get_config() {
         $config = json_decode($config, TRUE);
 
         // Set required fields
-        $required = ['name', 'styles', 'scripts'];
+        $required = array(
+            'name',
+            'styles',
+            'scripts'
+        );
 
         // Check for required fields
         foreach ( $required as $field ) {

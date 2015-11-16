@@ -15,16 +15,16 @@ class Variables {
      * and so are not settable from outside
      * of the class
      */
-    private $core = [];
+    private $core = array();
 
     /**
      * Construct
      * Define core variables
      */
     public function __construct() {
-        $this->addVar([
+        $this->addVar(array(
             'theme_dir' => THEME_DIR
-        ], false, true);
+        ), false, true);
     }
 
     /**

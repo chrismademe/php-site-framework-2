@@ -2,7 +2,7 @@
 
 use Plugins\Plugins;
 
-$includes = [
+$includes = array(
     APP_DIR .'/vendor/autoload.php',
     APP_DIR .'/config.php',
     APP_DIR .'/core/triggers.php',
@@ -12,7 +12,7 @@ $includes = [
     APP_DIR .'/core/functions.php',
     APP_DIR .'/core/variables.php',
     APP_DIR .'/variables.php'
-];
+);
 
 /**
  * Include available plugins

@@ -31,7 +31,7 @@ class Controller {
     /**
      * Current path index
      */
-    private $index      = [];
+    private $index      = array();
 
     /**
      * Debug mode

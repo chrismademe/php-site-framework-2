@@ -8,40 +8,40 @@ use Theme\Variables;
 $variables = new Variables();
 
 // Debug helpers
-$variables->addVar('dev', [
+$variables->addVar('dev', array(
     'localhost' => is_localhost()
-]);
+));
 
 // Theme
-$variables->addVar('theme', [
-    'supports'  => (array_key_exists('supports', $theme) ? $theme['supports'] : [])
-]);
+$variables->addVar('theme', array(
+    'supports'  => (array_key_exists('supports', $theme) ? $theme['supports'] : array())
+));
 
 // Global Site Variables
-$variables->addVar('site', [
+$variables->addVar('site', array(
     'name'      => SITE_NAME,
     'email'     => SITE_EMAIL,
     'domain'    => SITE_DOMAIN,
     'styles'    => load_asset($theme['styles'], 'css'),
     'scripts'   => load_asset($theme['scripts'], 'js'),
     'assets'    => assets_dir(),
-    'ie'        => [
+    'ie'        => array(
         'min'       => 9,
         'strict'    => false
-    ]
-]);
+    )
+));
 
 // Page variables
-$variables->addVar('page', [
+$variables->addVar('page', array(
     'is_home'   => is_home(),
     'path'      => $path,       // Path as it comes (e.g. services/design)
     'slug'      => get_page()   // Formatted page ID (e.g. services-design)
-], true);
+), true);
 
 // User variables
-$variables->addVar('user', [
+$variables->addVar('user', array(
     'logged_in' => false
-]);
+));
 
 // Various useful variables
 $variables->addVar('this_year', this_year());
@@ -54,16 +54,16 @@ $variables->addVar('this_year', this_year());
  ** ----------------------------------- **/
 
 // Page meta data
-$meta = [
+$meta = array(
 
     // Default - set to whichever page we're on
-    $variables->page['slug'] => [
+    $variables->page['slug'] => array(
         'title' => SITE_NAME,
         'description' => 'Description',
         'keywords' => 'Keywords',
         'canonical' => 'Canonical'
-    ]
+    )
 
-];
+);
 
 $variables->page['meta'] = $meta[$variables->page['slug']];

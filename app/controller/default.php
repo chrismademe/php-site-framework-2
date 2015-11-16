@@ -36,9 +36,9 @@
  * 404 page
  */
 if ( $theme->notFound() ) {
-    $variables->page['meta'] = [
+    $variables->page['meta'] = array(
         'title' => '404. Page Not Found | '. SITE_NAME,
         'description' => 'The page you were looking for could not be found.',
         'keywords' => 'not found'
-    ];
+    );
 }

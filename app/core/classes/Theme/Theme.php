@@ -39,7 +39,7 @@ class Theme {
     /**
      * Current path index
      */
-    private $index      = [];
+    private $index      = array();
 
     /**
      * Twig
@@ -93,10 +93,10 @@ class Theme {
         /**
          * Set default options
          */
-        $options = [
+        $options = array(
             'cache' => $this->cache,
             'debug' => $this->debug
-        ];
+        );
 
         /**
          * Load Twig

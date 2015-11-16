@@ -12,12 +12,12 @@ class Triggers {
     /**
      * Triggers array
      */
-    private $triggers = [];
+    private $triggers = array();
 
     /**
      * Actions array
      */
-    private $actions  = [];
+    private $actions  = array();
 
     /**
      * Construct

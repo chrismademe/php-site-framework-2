@@ -8,19 +8,19 @@ class Router {
      * Routes
      * Array of available routes
      */
-    private $routes     = [];
+    private $routes     = array();
 
     /**
      * Route
      * Current route
      */
-    private $route      = [];
+    private $route      = array();
 
     /**
      * Index
      * Array of segments in current route
      */
-    private $index      = [];
+    private $index      = array();
 
     /**
      * Not Found
@@ -33,18 +33,18 @@ class Router {
      * Set default path & index
      */
     public function __construct() {
-        $this->route = ['route' => (isset($_GET['path']) ? rtrim($_GET['path'], '/') : 'homepage')];
+        $this->route = array('route' => (isset($_GET['path']) ? rtrim($_GET['path'], '/') : 'homepage'));
         $this->setindex();
 
         // Core routes
-        $this->addRoutes([
-            $this->not_found => [
+        $this->addRoutes(array(
+            $this->not_found => array(
                 $this->not_found,
-            ],
-            'homepage' => [
+            ),
+            'homepage' => array(
                 'homepage'
-            ]
-        ]);
+            )
+        ));
     }
 
     /**
@@ -52,11 +52,11 @@ class Router {
      */
     public function addRoute( $route, $view = false, $controller = false ) {
         if ( !array_key_exists($route, $this->routes) ) {
-            $this->routes[$route] = [
+            $this->routes[$route] = array(
                 'route' => $route,
                 'view' => $view,
                 'controller' => $controller
-            ];
+            );
         }
     }
 
