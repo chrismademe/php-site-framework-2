@@ -9,6 +9,9 @@ npm install
 composer install
 ```
 
+## Theme Cache
+Twig caches rendered templates. To do so, make sure the permissions are set to 775 in the `theme/_cache` folder.
+
 ## Important
 When you upload your project, make sure you login to the root folder in the FTP account, your htdocs/public_html folder will be public facing and src should always be uploaded outside of the public folder.
 
