@@ -4,11 +4,22 @@ session_start();
 
 use Theme\Theme;
 use Controller\Controller;
+use Dotenv\Dotenv;
 
 /**
  * Set App directory
  */
 define('APP_DIR', '../app');
+
+/**
+ * Autoload Classes
+ */
+require_once APP_DIR .'/vendor/autoload.php';
+
+/**
+ * Include Environment Setup
+ */
+require_once APP_DIR .'/core/environment.php';
 
 /**
  * Include functions & classes

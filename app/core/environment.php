@@ -14,3 +14,18 @@ use Dotenv\Dotenv;
 
 $environment = new Dotenv( str_replace('/app/core', '', __DIR__) );
 $environment->load();
+
+/**
+ * Set Environment Status
+ */
+switch ( true ) {
+
+    /**
+     * Development
+     */
+    case getenv('ENVIRONMENT') === 'development':
+        error_reporting(-1);
+        ini_set('display_errors', 'on');
+    break;
+
+}

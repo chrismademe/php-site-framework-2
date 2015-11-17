@@ -3,11 +3,9 @@
 use Plugins\Plugins;
 
 $includes = array(
-    APP_DIR .'/vendor/autoload.php',
     APP_DIR .'/config.php',
     APP_DIR .'/core/triggers.php',
     APP_DIR .'/core/router.php',
-    APP_DIR .'/core/environment.php',
     APP_DIR .'/core/loader.php',
     APP_DIR .'/core/functions.php',
     APP_DIR .'/core/variables.php',
