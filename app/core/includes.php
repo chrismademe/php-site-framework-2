@@ -1,7 +1,5 @@
 <?php
 
-use Plugins\Plugins;
-
 $includes = array(
     APP_DIR .'/config.php',
     APP_DIR .'/core/triggers.php',
