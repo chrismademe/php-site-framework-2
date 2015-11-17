@@ -30,6 +30,11 @@ $environment->load();
 define('APP_DIR', getenv('APP_DIR'));
 
 /**
+ * Set Enrivonment
+ */
+define('ENVIRONMENT', getenv('ENVIRONMENT'));
+
+/**
  * Set Environment Status
  */
 switch ( true ) {
@@ -37,7 +42,7 @@ switch ( true ) {
     /**
      * Development
      */
-    case getenv('ENVIRONMENT') === 'development':
+    case ENVIRONMENT === 'development':
         error_reporting(-1);
         ini_set('display_errors', 'on');
     break;
@@ -65,7 +70,7 @@ $index  = $router->getIndex();
 $controller = new Controller($path, $index);
 $theme = new Theme($path, $index);
 
-if ( is_localhost() ) {
+if ( ENVIRONMENT === 'development' ) {
     $theme->setDebug(true);
 }
 
