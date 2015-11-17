@@ -2,24 +2,47 @@
 
 session_start();
 
-use Theme\Theme;
 use Controller\Controller;
 use Dotenv\Dotenv;
-
-/**
- * Set App directory
- */
-define('APP_DIR', '../app');
+use Theme\Theme;
 
 /**
  * Autoload Classes
  */
-require_once APP_DIR .'/vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 /**
- * Include Environment Setup
+ * Load Environment Variables
+ *
+ * Access variables from your
+ * app using the getenv() function.
+ *
+ * To access DB_HOST for example:
+ * getenv('DB_HOST');
  */
-require_once APP_DIR .'/core/environment.php';
+
+$environment = new Dotenv(__DIR__);
+$environment->load();
+
+/**
+ * Set App Directory
+ */
+define('APP_DIR', getenv('APP_DIR'));
+
+/**
+ * Set Environment Status
+ */
+switch ( true ) {
+
+    /**
+     * Development
+     */
+    case getenv('ENVIRONMENT') === 'development':
+        error_reporting(-1);
+        ini_set('display_errors', 'on');
+    break;
+
+}
 
 /**
  * Include functions & classes

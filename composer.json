@@ -1,6 +1,6 @@
 {
     "config": {
-        "vendor-dir": "app/vendor/"
+        "vendor-dir": "vendor/"
     },
     "autoload": {
         "psr-0": {
