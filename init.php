@@ -50,6 +50,12 @@ switch ( true ) {
 }
 
 /**
+ * Set Path
+ */
+$path   = (isset($_GET['path']) ? rtrim($_GET['path'], '/') : 'homepage');
+$index  = explode('/', $path);
+
+/**
  * Include functions & classes
  */
 try {
@@ -57,12 +63,6 @@ try {
 } catch (Exception $e) {
     echo '<div style="padding: 12px; background-color: #e6db40; color: white; text-align: center">'. $e->getMessage() .'</div>';
 }
-
-/**
- * Set Path
- */
-$path   = $router->getRoute();
-$index  = $router->getIndex();
 
 /**
  * Instantiate Controller & theme
@@ -92,7 +92,7 @@ $triggers->doTrigger('on_controller_init');
 /**
  * Render the Page
  */
-$theme->render($template, $variables);
+$theme->render($template, $variables->get());
 
 /*************************************
  *** Do Trigger: on_theme_init     ***

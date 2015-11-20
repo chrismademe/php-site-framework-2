@@ -8,17 +8,17 @@ use Theme\Variables;
 $variables = new Variables();
 
 // Debug helpers
-$variables->addVar('dev', array(
+$variables->add('dev', array(
     'localhost' => is_localhost()
 ));
 
 // Theme
-$variables->addVar('theme', array(
+$variables->add('theme', array(
     'supports'  => (array_key_exists('supports', $theme) ? $theme['supports'] : array())
 ));
 
 // Global Site Variables
-$variables->addVar('site', array(
+$variables->add('site', array(
     'name'      => SITE_NAME,
     'email'     => SITE_EMAIL,
     'domain'    => SITE_DOMAIN,
@@ -32,19 +32,19 @@ $variables->addVar('site', array(
 ));
 
 // Page variables
-$variables->addVar('page', array(
+$variables->add('page', array(
     'is_home'   => is_home(),
     'path'      => $path,       // Path as it comes (e.g. services/design)
     'slug'      => get_page()   // Formatted page ID (e.g. services-design)
 ), true);
 
 // User variables
-$variables->addVar('user', array(
+$variables->add('user', array(
     'logged_in' => false
 ));
 
 // Various useful variables
-$variables->addVar('this_year', this_year());
+$variables->add('this_year', this_year());
 
 /** ----------------------------------- **
  * Default page meta is set here but     *
@@ -57,7 +57,7 @@ $variables->addVar('this_year', this_year());
 $meta = array(
 
     // Default - set to whichever page we're on
-    $variables->page['slug'] => array(
+    $variables->get('page|slug') => array(
         'title' => SITE_NAME,
         'description' => 'Description',
         'keywords' => 'Keywords',
@@ -66,4 +66,4 @@ $meta = array(
 
 );
 
-$variables->page['meta'] = $meta[$variables->page['slug']];
+$variables->extend('page', 'meta', $meta[$variables->get('page|slug')]);

@@ -28,7 +28,7 @@ function is_localhost() {
  */
 function is_page( $check = null ) {
     $page = (is_null($check) ? 'homepage' : $check);
-    return $page == get_page();
+    return $page === get_page();
 }
 
 /**
