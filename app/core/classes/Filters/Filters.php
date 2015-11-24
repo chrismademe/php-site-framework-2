@@ -28,7 +28,7 @@ class Filters {
         # Set Default Hooks
         if ( !is_null( $hooks ) ) {
             foreach ( $hooks as $hook ) {
-                $this->addHook($hook);
+                $this->add_hook($hook);
             }
         }
 
@@ -37,8 +37,8 @@ class Filters {
     /**
      * Add Hook
      */
-    public function addHook( $name ) {
-        if ( !$this->hookExists($name) ) {
+    public function add_hook( $name ) {
+        if ( !$this->hook_exists($name) ) {
             $this->hooks[] = $name;
         }
     }
@@ -46,22 +46,22 @@ class Filters {
     /**
      * Hook Exists
      */
-    public function hookExists( $name ) {
+    public function hook_exists( $name ) {
         return in_array( $name, $this->hooks );
     }
 
     /**
      * Add Filter
      */
-    public function addFilter( $hook, $name, $args = 0, $priority = 10 ) {
+    public function add_filter( $hook, $name, $args = 0, $priority = 10 ) {
 
         # Check Hook Exists
-        if ( !$this->hookExists( $hook ) ) {
-            throw new Exception($hook . ' is not a valid hook. Try <code>$filters->addHook(\'' . $hook . '\');</code>');
+        if ( !$this->hook_exists( $hook ) ) {
+            throw new Exception($hook . ' is not a valid hook. Try <code>$filters->add_hook(\'' . $hook . '\');</code>');
         }
 
         # Check Filter doesn't already exist
-        if ( $this->filterExists( $hook, $name ) ) {
+        if ( $this->filter_exists( $hook, $name ) ) {
             throw new Exception($name . ' already exists.');
         }
 
@@ -111,14 +111,14 @@ class Filters {
     /**
      * Filter Exists
      */
-    public function filterExists( $hook, $name ) {
+    public function filter_exists( $hook, $name ) {
         return isset( $this->filters[$hook][$name] );
     }
 
     /**
      * Apply Filters
      */
-    public function applyFilters( $hook, $input = null ) {
+    public function apply_filters( $hook, $input = null ) {
 
         # Check for active filters
         if ( empty($this->filters[$hook]) ) {
@@ -137,7 +137,7 @@ class Filters {
 
         # Apply Each Filter
         foreach ( $filters as $name => $filter ) {
-            $input = $this->applyFilter(
+            $input = $this->apply_filter(
                 $hook,
                 $name,
                 $input
@@ -152,16 +152,16 @@ class Filters {
     /**
      * Apply Filter
      */
-    public function applyFilter( $hook, $name, $args = null ) {
+    public function apply_filter( $hook, $name, $args = null ) {
 
         # Check Hook Exists
-        if ( !$this->hookExists( $hook ) ) {
-            throw new Exception($hook . ' is not a valid hook. Try <code>$filters->addHook(\'' . $hook . '\');</code>');
+        if ( !$this->hook_exists( $hook ) ) {
+            throw new Exception($hook . ' is not a valid hook. Try <code>$filters->add_hook(\'' . $hook . '\');</code>');
         }
 
         # Check Filter Exists
-        if ( !$this->filterExists( $hook, $name ) ) {
-            throw new Exception($name . ' is not a valid filter. Try <code>$filters->addFilter(\'' . $hook . '\', \'' . $name . '\');</code>');
+        if ( !$this->filter_exists( $hook, $name ) ) {
+            throw new Exception($name . ' is not a valid filter. Try <code>$filters->add_filter(\'' . $hook . '\', \'' . $name . '\');</code>');
         }
 
         # Check Filter Function Exists

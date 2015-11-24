@@ -9,7 +9,7 @@ function add_hook( $name ) {
     global $filters;
 
     # Add Hook
-    $filters->addHook( $name );
+    $filters->add_hook( $name );
 
 }
 
@@ -22,7 +22,7 @@ function add_filter( $hook, $name, $args = 0, $priority = 10 ) {
     global $filters;
 
     # Add Filter
-    $filters->addFilter( $hook, $name, $args, $priority );
+    $filters->add_filter( $hook, $name, $args, $priority );
 
 }
 
@@ -35,6 +35,6 @@ function apply_filters( $hook, $input ) {
     global $filters;
 
     # Apply Filters
-    return $filters->applyFilters( $hook, $input );
+    return $filters->apply_filters( $hook, $input );
 
 }
