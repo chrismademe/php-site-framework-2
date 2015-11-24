@@ -8,7 +8,7 @@
             "Theme": "app/core/classes/",
             "Triggers": "app/core/classes/",
             "Plugins": "app/core/classes/",
-            "Router": "app/core/classes/"
+            "Filters": "app/core/classes/"
         }
     },
     "require": {

@@ -2,8 +2,8 @@
 
 $includes = array(
     APP_DIR .'/config.php',
+    APP_DIR .'/core/filters.php',
     APP_DIR .'/core/triggers.php',
-    APP_DIR .'/core/router.php',
     APP_DIR .'/core/loader.php',
     APP_DIR .'/core/functions.php',
     APP_DIR .'/core/variables.php',

@@ -55,46 +55,48 @@ switch ( true ) {
 $path   = (isset($_GET['path']) ? rtrim($_GET['path'], '/') : 'homepage');
 $index  = explode('/', $path);
 
-/**
- * Include functions & classes
- */
 try {
+
+    /**
+     * Include functions & classes
+     */
     require_once(APP_DIR .'/core/includes.php');
+
+    /**
+     * Instantiate Controller & theme
+     */
+    $controller = new Controller($path, $index);
+    $theme = new Theme($path, $index);
+
+    if ( ENVIRONMENT === 'development' ) {
+        $theme->setDebug(true);
+    }
+
+    /**
+     * Get template file
+     */
+    $template = $theme->load($path);
+
+    /**
+     * Load Controller file
+     */
+    require( $controller->load($path) );
+
+    /**************************************
+     *** Do Trigger: on_controller_init ***
+     **************************************/
+    $triggers->doTrigger('on_controller_init');
+
+    /**
+     * Render the Page
+     */
+    $theme->render($template, $variables->get());
+
+    /*************************************
+     *** Do Trigger: on_theme_init     ***
+     *************************************/
+    $triggers->doTrigger('on_theme_init');
+
 } catch (Exception $e) {
-    echo '<div style="padding: 12px; background-color: #e6db40; color: white; text-align: center">'. $e->getMessage() .'</div>';
+    echo '<div style="padding: 12px; background-color: #e78511; color: white; text-align: center">'. $e->getMessage() .'</div>';
 }
-
-/**
- * Instantiate Controller & theme
- */
-$controller = new Controller($path, $index);
-$theme = new Theme($path, $index);
-
-if ( ENVIRONMENT === 'development' ) {
-    $theme->setDebug(true);
-}
-
-/**
- * Get template file
- */
-$template = $theme->load($path);
-
-/**
- * Load Controller file
- */
-require( $controller->load($path) );
-
-/**************************************
- *** Do Trigger: on_controller_init ***
- **************************************/
-$triggers->doTrigger('on_controller_init');
-
-/**
- * Render the Page
- */
-$theme->render($template, $variables->get());
-
-/*************************************
- *** Do Trigger: on_theme_init     ***
- *************************************/
-$triggers->doTrigger('on_theme_init');
