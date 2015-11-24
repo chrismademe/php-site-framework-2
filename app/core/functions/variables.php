@@ -9,6 +9,6 @@ function add_variable( $name, $value = false ) {
     global $variables;
 
     # Add Variable
-    $variables->addVar( $name, $value );
+    $variables->add( $name, $value );
 
 }

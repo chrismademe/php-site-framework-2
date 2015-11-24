@@ -11,7 +11,13 @@
  *
  * E.G. To set a variable called
  * "mobile_number":
- * $variables->addVar('mobile_number', '0147852036');
+ * add_variable('mobile_number', '0147852036');
+ *
+ * To add multiple variables:
+ * add_variable(array(
+ *     'key' => 'value',
+ *     'key' => 'value'
+ * ));
  *
  * The above then becomes available in your templates:
  * {{ mobile_number }}
