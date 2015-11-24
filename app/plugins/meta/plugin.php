@@ -20,7 +20,7 @@ if ( !file_exists(META_FILE) || !is_readable(META_FILE) ) {
 /**
  * Add Hook
  */
-$filters->addHook( 'on_meta_init' );
+add_hook( 'on_meta_init' );
 
 /**
  * Do ya thang!
@@ -33,7 +33,7 @@ if ( $meta_data && array_key_exists($variables->page['slug'], $meta_data) ) {
     $data = array_merge($variables->page['meta'], $meta_data[$variables->page['slug']]);
 
     # Apply Filters
-    $data = $filters->applyFilters( 'on_meta_init', $data );
+    $data = apply_filters( 'on_meta_init', $data );
 
     # Set meta
     $variables->page['meta'] = $data;
