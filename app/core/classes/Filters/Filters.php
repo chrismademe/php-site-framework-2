@@ -120,6 +120,11 @@ class Filters {
      */
     public function applyFilters( $hook, $input = null ) {
 
+        # Check for active filters
+        if ( empty($this->filters[$hook]) ) {
+            return $input;
+        }
+
         # Get Filters
         $filters = $this->filters[$hook];
 

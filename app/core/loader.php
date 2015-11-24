@@ -39,8 +39,10 @@ function get_config() {
 
 }
 
-try {
-    $theme = get_config();
-} catch (Exception $e) {
-    echo $e->getMessage();
-}
+$theme = get_config();
+
+# Add Hook & filter
+add_hook( 'filter_theme_config' );
+
+# Filter $theme
+$theme = apply_filters( 'filter_theme_config', $theme );
