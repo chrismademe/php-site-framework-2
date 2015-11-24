@@ -1,6 +1,18 @@
 {
+    "name": "chrismademe/php-site-framework-2",
+    "description": "PHP Framework for building interactive apps/websites",
+    "authors": [
+        {
+            "name": "Chris Galbraith",
+            "email": "chris@chrismade.me"
+        }
+    ],
     "config": {
         "vendor-dir": "vendor/"
+    },
+    "require": {
+        "twig/twig": "^1.22",
+        "vlucas/phpdotenv": "^2.1"
     },
     "autoload": {
         "psr-0": {
@@ -10,9 +22,5 @@
             "Plugins": "app/core/classes/",
             "Filters": "app/core/classes/"
         }
-    },
-    "require": {
-        "twig/twig": "^1.22",
-        "vlucas/phpdotenv": "^2.1"
     }
 }
