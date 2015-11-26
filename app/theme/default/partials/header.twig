@@ -31,6 +31,7 @@
         {% endfor %}
     {% endif %}
 
+    {# Touch icons & Favicon #}
     <link rel="apple-touch-icon" sizes="57x57" href="{{ site.assets }}/images/icons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ site.assets }}/images/icons/apple-touch-icon-76x76.png">
     <link rel="apple-touch-icon" sizes="120x120" href="{{ site.assets }}/images/icons/apple-touch-icon-120x120.png">
@@ -38,6 +39,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ site.assets }}/images/icons/apple-touch-icon-180x180.png">
     <link rel="icon" type="image/x-icon" href="{{ site.assets }}/images/icons/favicon.ico">
 
+    {# Facebook & Twitter Open Graph tags #}
     {{ include('partials/meta-facebook.twig', ignore_missing = true) }}
     {{ include('partials/meta-twitter.twig', ignore_missing = true) }}
 

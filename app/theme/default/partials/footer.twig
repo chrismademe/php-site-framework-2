@@ -1,3 +1,4 @@
+{# Google Analytics #}
 {{ include('partials/analytics.twig', ignore_missing = true) }}
 
 <!--[if lt IE 9]>
@@ -5,20 +6,21 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-{# Site wide javascript #}
+{# Site wide Javascript #}
 {% if site.scripts %}
     {% for script in site.scripts %}
     <script src="{{ script.src }}"{% if script.async %} async{% endif %}></script>
     {% endfor %}
 {% endif %}
 
-{# Page specific javascript #}
+{# Page specific Javascript #}
 {% if page.scripts %}
     {% for script in page.scripts %}
     <script src="{{ script.src }}"{% if script.async %} async{% endif %}></script>
     {% endfor %}
 {% endif %}
 
+{# Cookie Choices #}
 <script>document.addEventListener("DOMContentLoaded",function(){cookieChoices.showCookieConsentBar("This website use cookies to give you the best experience.","OK","Learn more","http://www.allaboutcookies.org")});</script>
 
 </body>
