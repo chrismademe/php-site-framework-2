@@ -1,20 +1,13 @@
 <?php
 
-/**
- * Theme & Content
- */
+# Theme & Content
 define('SITE_THEME', 'default');
 
-/**
- * Global Theme Settings
- */
-define('THEME_DIR', 'theme'); // Base directory
-define('THEME_ASSETS', 'assets'); // Theme assets directory
-define('THEME_TPL_EXT', '.html'); // Template file extension
+# Domain Name (including protocol)
+define('SITE_DOMAIN', 'http://localhost');
 
-/**
- * Site Settings
- */
-define('SITE_DOMAIN', 'http://localhost'); // Full domain name including http://
-define('SITE_NAME', 'Change Me'); // Website / Company name
-define('SITE_EMAIL', 'info@localhost'); // Primary email
+# Site Name (usually company name)
+define('SITE_NAME', 'Change Me');
+
+# Site Email (used for contact forms etc)
+define('SITE_EMAIL', 'info@localhost');

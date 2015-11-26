@@ -66,17 +66,20 @@ class Theme {
      */
     public function __construct($path, array $index, array $config = null) {
 
-        // Default config
-        $this->dir = APP_DIR .'/'. THEME_DIR .'/'. SITE_THEME; // Template directory
-        $this->ext = THEME_TPL_EXT; // Template file extension
-        $this->default = '404'; // Default template name
-        $this->cache = APP_DIR .'/'. THEME_DIR .'/.cache'; // Cache folder
+        # Theme Dir
+        $theme          = (defined('THEME_DIR') ? THEME_DIR : 'theme');
 
-        // Set path variables
-        $this->path = $path;
-        $this->index = $index;
+        # Default config
+        $this->dir      = APP_DIR .'/'. $theme .'/'. SITE_THEME; # Template directory
+        $this->ext      = (defined('THEME_TPL_EXT') ? THEME_TPL_EXT : '.twig'); # Template file extension
+        $this->default  = '404'; # Default template name
+        $this->cache    = APP_DIR .'/'. $theme .'/.cache'; # Cache folder
 
-        // Custom config
+        # Set path variables
+        $this->path     = $path;
+        $this->index    = $index;
+
+        # Custom config
         if ( !is_null($config) ) {
             foreach ($config as $property => $value) {
                 if ( property_exists($this, $property) ) {
@@ -268,24 +271,24 @@ class Theme {
 
         while ($index) {
 
-            // Remove last index
+            # Remove last index
             unset($index[$index_count]);
 
-            // Generate filename
+            # Generate filename
             $file = implode($implode, $index) . $this->ext;
 
-            // If we found a match, use it
+            # If we found a match, use it
             if ( file_exists($this->dir .'/'. $file) ) {
                 $template = $file;
                 break;
             }
 
-            // If not, move on to the next one
+            # If not, move on to the next one
             $index_count--;
 
         }
 
-        // Return template
+        # Return template
         if ( isset($template) ) {
             return $template;
         } else {

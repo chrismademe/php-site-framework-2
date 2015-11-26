@@ -43,16 +43,16 @@ class Controller {
      */
     public function __construct($path, array $index, array $config = null) {
 
-        // Default config
-        $this->dir = APP_DIR .'/controller'; // Template directory
-        $this->ext = '.php'; // Template file extension
-        $this->default = 'default'; // Default template name
+        # Default config
+        $this->dir = APP_DIR .'/controller'; # Template directory
+        $this->ext = '.php'; # Template file extension
+        $this->default = 'default'; # Default template name
 
-        // Set path variables
+        # Set path variables
         $this->path = $path;
         $this->index = $index;
 
-        // Custom config
+        # Custom config
         if ( !is_null($config) ) {
             foreach ($config as $property => $value) {
                 if ( property_exists($this, $property) ) {
@@ -172,19 +172,19 @@ class Controller {
 
         while ($index) {
 
-            // Remove last index
+            # Remove last index
             unset($index[$index_count]);
 
-            // Generate filename
+            # Generate filename
             $file = implode($implode, $index) . $this->ext;
 
-            // If we found a match, use it
+            # If we found a match, use it
             if ( file_exists($this->dir .'/'. $file) ) {
                 $template = $file;
                 break;
             }
 
-            // If not, move on to the next one
+            # If not, move on to the next one
             $index_count--;
 
         }

@@ -28,7 +28,7 @@ class Variables {
      */
     public function __construct() {
         $this->add(array(
-            'theme_dir' => THEME_DIR
+            'theme_dir' => (defined('THEME_DIR') ? THEME_DIR : 'theme')
         ), false, true);
     }
 

@@ -7,17 +7,17 @@ use Theme\Variables;
  */
 $variables = new Variables();
 
-// Debug helpers
+# Debug helpers
 $variables->add('dev', array(
     'localhost' => is_localhost()
 ));
 
-// Theme
+# Theme
 $variables->add('theme', array(
     'supports'  => (array_key_exists('supports', $theme) ? $theme['supports'] : array())
 ));
 
-// Global Site Variables
+# Global Site Variables
 $variables->add('site', array(
     'name'      => SITE_NAME,
     'email'     => SITE_EMAIL,
@@ -31,19 +31,19 @@ $variables->add('site', array(
     )
 ));
 
-// Page variables
+# Page variables
 $variables->add('page', array(
     'is_home'   => is_home(),
-    'path'      => $path,       // Path as it comes (e.g. services/design)
-    'slug'      => get_page()   // Formatted page ID (e.g. services-design)
+    'path'      => $path,       # Path as it comes (e.g. services/design)
+    'slug'      => get_page()   # Formatted page ID (e.g. services-design)
 ), true);
 
-// User variables
+# User variables
 $variables->add('user', array(
     'logged_in' => false
 ));
 
-// Various useful variables
+# Various useful variables
 $variables->add('this_year', this_year());
 
 /** ----------------------------------- **
@@ -53,10 +53,10 @@ $variables->add('this_year', this_year());
  * $_['page']['meta'] from your model.   *
  ** ----------------------------------- **/
 
-// Page meta data
+# Page meta data
 $meta = array(
 
-    // Default - set to whichever page we're on
+    # Default - set to whichever page we're on
     $variables->get('page|slug') => array(
         'title' => SITE_NAME,
         'description' => 'Description',

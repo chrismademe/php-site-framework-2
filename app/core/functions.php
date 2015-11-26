@@ -27,7 +27,7 @@ function is_localhost() {
  * if no argument
  */
 function is_page( $check = null ) {
-    $page = (is_null($check) ? 'homepage' : $check);
+    $page = (is_null($check) ? 'index' : $check);
     return $page === get_page();
 }
 
@@ -63,10 +63,10 @@ function is_home() {
  */
 function get_page() {
 
-    // Get path
+    # Get path
     global $path;
 
-    // Remove slashes
+    # Remove slashes
     $uri = str_replace('/', '-', ltrim($path, '/'));
 
     return $uri;
@@ -90,12 +90,12 @@ function this_year($value = null) {
  */
 function has_expired($date, $time = null) {
 
-    // Set time
+    # Set time
     if (is_null($time)) {
         $time = '00:00';
     }
 
-    // Set time and date
+    # Set time and date
     $exp = $date . $time;
 
     return date('dmYHi') >= $exp;
@@ -117,9 +117,14 @@ function has_expired($date, $time = null) {
  * ability to do so has been removed.
  * From now on, pass the return value
  * to your theme as a variable.
+ *
+ * This function returns the location
+ * of the PUBLIC assets directory, not
+ * the source.
  */
 function assets_dir() {
-    return '/'. THEME_ASSETS;
+    $dir = (defined('THEME_ASSETS') ? THEME_ASSETS : 'assets');
+    return '/'. $dir;
 }
 
 /**
@@ -135,20 +140,20 @@ function load_asset( $asset, $append = false ) {
 
     } else {
 
-        // Set new path
+        # Set new path
         $dir = ($append ? assets_dir() .'/'. $append : assets_dir());
 
-        // Async false by default
+        # Async false by default
         $loaded['async'] = false;
 
-        // Check for local file
+        # Check for local file
         if ( substr($asset, 0, 1) == '|' ) {
             $loaded['src'] =  $dir .'/'. ltrim($asset, '|');
         } else {
             $loaded['src'] = $asset;
         }
 
-        // Check for Async
+        # Check for Async
         foreach ( $loaded as $asset ) {
             $asset = explode(':', $asset);
             if ( count($asset) > 1 ) {
