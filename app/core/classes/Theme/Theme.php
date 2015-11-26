@@ -70,7 +70,7 @@ class Theme {
         $this->dir = APP_DIR .'/'. THEME_DIR .'/'. SITE_THEME; // Template directory
         $this->ext = THEME_TPL_EXT; // Template file extension
         $this->default = '404'; // Default template name
-        $this->cache = APP_DIR .'/'. THEME_DIR .'/_cache'; // Cache folder
+        $this->cache = APP_DIR .'/'. THEME_DIR .'/.cache'; // Cache folder
 
         // Set path variables
         $this->path = $path;

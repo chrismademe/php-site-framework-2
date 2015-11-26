@@ -10,7 +10,7 @@ define('SITE_THEME', 'default');
  */
 define('THEME_DIR', 'theme'); // Base directory
 define('THEME_ASSETS', 'assets'); // Theme assets directory
-define('THEME_TPL_EXT', '.twig'); // Template file extension
+define('THEME_TPL_EXT', '.html'); // Template file extension
 
 /**
  * Site Settings

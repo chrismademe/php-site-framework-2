@@ -52,7 +52,7 @@ switch ( true ) {
 /**
  * Set Path
  */
-$path   = (isset($_GET['path']) ? rtrim($_GET['path'], '/') : 'homepage');
+$path   = (isset($_GET['path']) ? rtrim($_GET['path'], '/') : 'index');
 $index  = explode('/', $path);
 
 try {
