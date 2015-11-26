@@ -41,8 +41,5 @@ function get_config() {
 
 $theme = get_config();
 
-# Add Hook & filter
-add_hook( 'filter_theme_config' );
-
 # Filter $theme
-$theme = apply_filters( 'filter_theme_config', $theme );
+$theme = $filters->apply_filters( 'filter_theme_config', $theme );

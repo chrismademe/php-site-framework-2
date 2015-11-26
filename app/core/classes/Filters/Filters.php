@@ -57,7 +57,7 @@ class Filters {
 
         # Check Hook Exists
         if ( !$this->hook_exists( $hook ) ) {
-            throw new Exception($hook . ' is not a valid hook. Try <code>$filters->add_hook(\'' . $hook . '\');</code>');
+            $this->add_hook( $hook );
         }
 
         # Check Filter doesn't already exist
@@ -152,7 +152,7 @@ class Filters {
     /**
      * Apply Filter
      */
-    public function apply_filter( $hook, $name, $args = null ) {
+    public function apply_filter( $hook, $name, $input ) {
 
         # Check Hook Exists
         if ( !$this->hook_exists( $hook ) ) {
@@ -169,50 +169,9 @@ class Filters {
             throw new Exception($name .' is not a defined function. Try <code>function ' . $name . '() {}</code>');
         }
 
-        # Check $args
-        if ( !is_array($args) ) {
-            $args = array($args);
-        }
-
         ############################
 
-        # Get $args count
-        $args_count = ( is_null($args) ? 0 : count($args) );
-
-        # Apply Filter
-        switch ( true ) {
-
-            # 0 arguments
-            case $args_count === 0:
-                return $name();
-            break;
-
-            # 1 argument
-            case $args_count === 1:
-                return $name( $args[0] );
-            break;
-
-            # 2 arguments
-            case $args_count === 2:
-                return $name( $args[0], $args[1] );
-            break;
-
-            # 3 arguments
-            case $args_count === 3:
-                return $name( $args[0], $args[1], $args[2] );
-            break;
-
-            # 4 arguments
-            case $args_count === 4:
-                return $name( $args[0], $args[1], $args[2], $args[3] );
-            break;
-
-            # 5 arguments
-            case $args_count === 5:
-                return $name( $args[0], $args[1], $args[2], $args[3], $args[4] );
-            break;
-
-        }
+        return $name( $input );
 
     }
 

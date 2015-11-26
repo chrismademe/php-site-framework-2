@@ -82,20 +82,10 @@ try {
      */
     require( $controller->load($path) );
 
-    /**************************************
-     *** Do Trigger: on_controller_init ***
-     **************************************/
-    $triggers->doTrigger('on_controller_init');
-
     /**
      * Render the Page
      */
     $theme->render($template, $variables->get());
-
-    /*************************************
-     *** Do Trigger: on_theme_init     ***
-     *************************************/
-    $triggers->doTrigger('on_theme_init');
 
 } catch (Exception $e) {
     echo '<div style="padding: 12px; background-color: #e78511; color: white; text-align: center">'. $e->getMessage() .'</div>';
