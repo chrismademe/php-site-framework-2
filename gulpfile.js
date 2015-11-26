@@ -5,7 +5,6 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
-    livereload = require('gulp-livereload'),
     plumber = require('gulp-plumber'),
     del = require('del'),
     autoprefixer = require('gulp-autoprefixer');
@@ -13,7 +12,7 @@ var gulp = require('gulp'),
     // Config
     var config = {
         theme: 'default',
-        public: 'htdocs'
+        public: 'public_html'
     }
 
     // Style Tasks
@@ -56,11 +55,5 @@ var gulp = require('gulp'),
 
         // Watch .js files
         gulp.watch('app/theme/'+ config.theme +'/assets/js/*.js', ['scripts']);
-
-        // Create LiveReload server
-        livereload.listen();
-
-        // Watch any files in dist/, reload on change
-        gulp.watch(['assets/css/**']).on('change', livereload.changed);
 
     });
