@@ -7,9 +7,19 @@ use Dotenv\Dotenv;
 use Theme\Theme;
 
 /**
+ * Set Root Dir
+ */
+define('ROOT_DIR', __DIR__);
+
+/**
  * Autoload Classes
  */
 require_once 'vendor/autoload.php';
+
+/**
+ * Build .env
+ */
+require_once 'env.php';
 
 /**
  * Load Environment Variables
