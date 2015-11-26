@@ -13,7 +13,7 @@ composer install
 ```
 
 ## Theme Cache
-Twig caches rendered templates. To do so, it requires permissions to write to the cache folder. Make sure the permissions are set to 775 in the `app/theme/_cache` folder.
+Twig caches rendered templates. To do so, it requires permissions to write to the cache folder. Make sure the permissions are set to 775 in the `app/theme/.cache` folder.
 
 ## Use it in other projects
 PHPSF2 is available as a Composer package so you can use it in your own projects. Just require it:
