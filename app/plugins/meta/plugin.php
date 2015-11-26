@@ -18,11 +18,6 @@ if ( !file_exists(META_FILE) || !is_readable(META_FILE) ) {
 }
 
 /**
- * Add Hook
- */
-add_hook( 'on_meta_init' );
-
-/**
  * Do ya thang!
  */
 $meta_data = json_decode( file_get_contents(META_FILE), TRUE );
