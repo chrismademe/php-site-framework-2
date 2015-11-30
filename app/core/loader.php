@@ -42,7 +42,7 @@ function get_config() {
 
 }
 
-$theme = get_config();
+$theme_config = get_config();
 
 # Filter $theme
-$theme = $filters->apply_filters( 'filter_theme_config', $theme );
+$theme_config = $filters->apply_filters( 'filter_theme_config', $theme_config );

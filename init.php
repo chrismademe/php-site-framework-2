@@ -68,15 +68,20 @@ $index  = explode('/', $path);
 try {
 
     /**
-     * Include functions & classes
+     * Get Config
      */
-    require_once(APP_DIR .'/core/includes.php');
+    require_once APP_DIR . '/config.php';
 
     /**
      * Instantiate Controller & theme
      */
     $controller = new Controller($path, $index);
     $theme = new Theme($path, $index);
+
+    /**
+     * Include functions & classes
+     */
+    require_once(APP_DIR .'/core/includes.php');
 
     if ( ENVIRONMENT === 'development' ) {
         $theme->setDebug(true);
