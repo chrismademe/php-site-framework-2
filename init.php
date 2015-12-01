@@ -103,5 +103,5 @@ try {
     $theme->render($template, $variables->get());
 
 } catch (Exception $e) {
-    echo '<div style="padding: 12px; background-color: #e78511; color: white; text-align: center">'. $e->getMessage() .'</div>';
+    echo '<script>console.log("PHP Exception: ' . $e->getMessage() . '");</script>';
 }

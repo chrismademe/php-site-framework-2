@@ -269,7 +269,7 @@ class Theme {
         }
 
         # Check permissions
-        if ( !is_writeable($theme->cache) ) {
+        if ( !is_writeable($this->cache) ) {
             throw new Exception('Your <code>.cache</code> directory is not writeable. <code>Try chmod 775</code>');
         }
 
