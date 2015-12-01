@@ -22,8 +22,8 @@ $variables->add('site', array(
     'name'      => SITE_NAME,
     'email'     => SITE_EMAIL,
     'domain'    => SITE_DOMAIN,
-    'styles'    => load_asset($theme['styles'], 'css'),
-    'scripts'   => load_asset($theme['scripts'], 'js'),
+    'styles'    => load_asset($theme_config['styles'], 'css'),
+    'scripts'   => load_asset($theme_config['scripts'], 'js'),
     'assets'    => assets_dir(),
     'ie'        => array(
         'min'       => 9,
@@ -40,7 +40,7 @@ $variables->add('page', array(
 
 # User variables
 $variables->add('user', array(
-    'logged_in' => false
+    'logged_in' => is_loggedin()
 ));
 
 # Various useful variables

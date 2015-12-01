@@ -5,6 +5,11 @@ namespace Theme;
 class Theme {
 
     /**
+     * Active Theme
+     */
+    private $active;
+
+    /**
      * Template directory
      */
     private $dir;
@@ -67,7 +72,10 @@ class Theme {
     public function __construct($path, array $index, array $config = null) {
 
         # Theme Dir
-        $theme          = (defined('THEME_DIR') ? THEME_DIR : 'theme');
+        $theme    = (defined('THEME_DIR') ? THEME_DIR : 'theme');
+
+        # Active theme
+        $this->active   = SITE_THEME;
 
         # Default config
         $this->dir      = APP_DIR .'/'. $theme .'/'. SITE_THEME; # Template directory
@@ -87,6 +95,16 @@ class Theme {
                 }
             }
         }
+
+        # Initialise Twig
+        $this->init();
+
+    }
+
+    /**
+     * Init
+     */
+    private function init() {
 
         /**
          * Set Twig filesystem directory
@@ -310,6 +328,25 @@ class Theme {
      */
     public function notFound() {
         return $this->not_found;
+    }
+
+    /**
+     * Use Theme
+     *
+     * Use specified theme instead
+     * of default for this request
+     */
+    public function useTheme( $theme ) {
+
+        # Update Dir
+        $this->dir = str_replace($this->active, $theme, $this->dir);
+
+        # Active Theme
+        $this->active = $theme;
+
+        # Re-initialise Twig
+        $this->init();
+
     }
 
 }

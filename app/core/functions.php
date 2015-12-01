@@ -220,3 +220,37 @@ function plugin_exists( $plugin ) {
 function plugin_is_active( $plugin ) {
     return file_exists(plugin_dir() .'/'. $plugin .'/plugin.php');
 }
+
+/** --------------------------------- *
+ * User Helper Functions              *
+ * --------------------------------- **/
+function is_loggedin() {
+    return session_exists( SESSION_ID );
+}
+
+/** --------------------------------- *
+ * Session Helper Functions           *
+ * --------------------------------- **/
+function session_exists( $session ) {
+    return isset($_SESSION[$session]);
+}
+
+/**
+ * Add a session key to the
+ * current session
+ */
+function session_add( $key, $value ) {
+    $_SESSION[$key] = $value;
+}
+
+/**
+ * Remove a session key to the
+ * current session
+ */
+function session_remove( $key ) {
+
+    if ( session_exists($key) ) {
+        unset( $_SESSION[$key] );
+    }
+
+}

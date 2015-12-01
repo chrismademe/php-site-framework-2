@@ -193,4 +193,13 @@ class Controller {
 
     }
 
+    /**
+     * Use Controller
+     *
+     * Change the controller directory
+     */
+    public function useController( $controller ) {
+        $this->dir = $controller;
+    }
+
 }

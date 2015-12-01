@@ -5,11 +5,14 @@
  */
 function get_config() {
 
+    # Get Theme object
+    global $theme;
+
     # Theme Folder
-    $theme = (defined('THEME_DIR') ? THEME_DIR : 'theme');
+    $dir = (defined('THEME_DIR') ? THEME_DIR : 'theme');
 
     # Config file
-    $file = APP_DIR .'/'. $theme .'/'. SITE_THEME .'/theme.json';
+    $file = APP_DIR .'/'. $dir .'/'. $theme->active .'/theme.json';
 
     # Get config file
     if ( file_exists($file) && is_readable($file) ) {
@@ -42,7 +45,7 @@ function get_config() {
 
 }
 
-$theme = get_config();
+$theme_config = get_config();
 
 # Filter $theme
-$theme = $filters->apply_filters( 'filter_theme_config', $theme );
+$theme_config = $filters->apply_filters( 'filter_theme_config', $theme_config );

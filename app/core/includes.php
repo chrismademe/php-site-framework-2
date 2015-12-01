@@ -1,7 +1,6 @@
 <?php
 
 $includes = array(
-    APP_DIR . '/config.php',
     APP_DIR . '/core/filters.php',
     APP_DIR . '/core/functions.php',
     APP_DIR . '/functions.php',
