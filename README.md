@@ -13,7 +13,7 @@ composer install
 ```
 
 ## Deploying
-When you upload your site, make sure you're using the "production" tag in .env so that errors are not displayed on screen.
+When you upload your site, make sure you're using the `production` tag in `.env` so that errors are not displayed on screen.
 
 ## Theme Cache
 Twig caches rendered templates. To do so, it requires permissions to write to the cache folder. Make sure the permissions are set to 775 in the `app/theme/.cache` folder.
