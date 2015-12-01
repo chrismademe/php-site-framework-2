@@ -1,6 +1,7 @@
 <?php
 
 namespace Theme;
+use Exception;
 
 class Theme {
 
