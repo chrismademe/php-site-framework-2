@@ -267,6 +267,11 @@ class Theme {
             $dir = $this->cache;
         }
 
+        # Check permissions
+        if ( !is_writeable($theme->cache) ) {
+            throw new Exception('Your <code>.cache</code> directory is not writeable. <code>Try chmod 775</code>');
+        }
+
         foreach ( glob($dir .'/*') as $file ) {
             if ( is_dir($file) ) {
                 $this->clearCache($file);
