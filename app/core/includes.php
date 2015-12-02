@@ -1,16 +1,18 @@
 <?php
 
-$includes = array(
-    APP_DIR . '/core/filters.php',
-    APP_DIR . '/core/functions.php',
-    APP_DIR . '/functions.php',
-    APP_DIR . '/core/loader.php',
-    APP_DIR . '/core/variables.php'
-);
+# Include before anything else
+$includes[] = APP_DIR . '/core/filters.php';
+$includes[] = APP_DIR . '/core/functions.php';
+$includes[] = APP_DIR . '/functions.php';
 
-/**
- * Include available plugins
- */
+# Get Plugin functions.php
+$includes = array_merge($includes, glob(APP_DIR . '/plugins/**/functions.php'));
+
+# Include after Plugin functions are loaded
+$includes[] = APP_DIR . '/core/loader.php';
+$includes[] = APP_DIR . '/core/variables.php';
+
+# Include available plugins
 $includes = array_merge($includes, glob(APP_DIR . '/plugins/**/plugin.php'));
 
 /**
