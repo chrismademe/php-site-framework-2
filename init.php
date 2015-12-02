@@ -49,12 +49,19 @@ define('ENVIRONMENT', getenv('ENVIRONMENT'));
  */
 switch ( true ) {
 
-    /**
-     * Development
-     */
+    # Development
     case ENVIRONMENT === 'development':
-        error_reporting(-1);
-        ini_set('display_errors', 'on');
+        require_once APP_DIR . '/environment/development.php';
+    break;
+
+    # Staging (V2 etc.)
+    case ENVIRONMENT === 'staging':
+        require_once APP_DIR . '/environment/staging.php';
+    break;
+
+    # Production (Live)
+    case ENVIRONMENT === 'production':
+        require_once APP_DIR . '/environment/production.php';
     break;
 
 }
