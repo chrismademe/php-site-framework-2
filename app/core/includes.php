@@ -26,6 +26,6 @@ foreach ( $includes as $file ) {
         throw new Exception('Required file: ' . $file . ' either does not exist or is not readable.');
     }
 
-    require_once( $file );
+    require_once $file;
 
 }
