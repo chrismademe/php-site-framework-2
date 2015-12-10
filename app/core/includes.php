@@ -6,14 +6,24 @@ $includes[] = APP_DIR . '/core/functions.php';
 $includes[] = APP_DIR . '/functions.php';
 
 # Get Plugin functions.php
-$includes = array_merge($includes, glob(APP_DIR . '/plugins/**/functions.php'));
+$plugin_functions = glob(APP_DIR . '/plugins/**/functions.php');
+
+# Include Plugin functions.php
+if ( is_array($plugin_functions) ) {
+    $includes = array_merge($includes, $plugin_functions);
+}
 
 # Include after Plugin functions are loaded
 $includes[] = APP_DIR . '/core/loader.php';
 $includes[] = APP_DIR . '/core/variables.php';
 
-# Include available plugins
-$includes = array_merge($includes, glob(APP_DIR . '/plugins/**/plugin.php'));
+# Get available plugins
+$plugin_files = glob(APP_DIR . '/plugins/**/plugin.php');
+
+# Include plugins
+if ( is_array($plugin_files) ) {
+    $includes = array_merge($includes, $plugin_files);
+}
 
 /**
  * Load required files

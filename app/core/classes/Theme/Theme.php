@@ -273,11 +273,16 @@ class Theme {
             throw new Exception('Your <code>.cache</code> directory is not writeable. <code>Try chmod 775</code>');
         }
 
-        foreach ( glob($dir .'/*') as $file ) {
-            if ( is_dir($file) ) {
-                $this->clearCache($file);
-            } else {
-                unlink($file);
+        # Get Cache files
+        $files = glob($dir .'/*');
+
+        if ( is_array( $files ) ) {
+            foreach ( $files as $file ) {
+                if ( is_dir($file) ) {
+                    $this->clearCache($file);
+                } else {
+                    unlink($file);
+                }
             }
         }
 
