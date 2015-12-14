@@ -83,7 +83,7 @@ try {
      * Instantiate Controller & theme
      */
     $controller = new Controller($path, $index);
-    $theme = new Theme($path, $index, array('cache' => getenv('TWIG_CACHE')));
+    $theme = new Theme($path, $index, array('cache' => false));
 
     /**
      * Include functions & classes
