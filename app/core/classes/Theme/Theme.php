@@ -167,7 +167,10 @@ class Theme {
          */
         if ( $this->debug === true ) {
             $this->twig->addExtension(new \Twig_Extension_Debug());
-            $this->clearCache();
+
+            if ( $this->cache != false ) {
+                $this->clearCache();    
+            }
         }
 
         /**
@@ -269,7 +272,7 @@ class Theme {
         }
 
         # Check permissions
-        if ( !is_writeable($this->cache) ) {
+        if ( $this->cache != false && !is_writeable($dir) ) {
             throw new Exception('Your <code>.cache</code> directory is not writeable. <code>Try chmod 775</code>');
         }
 

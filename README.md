@@ -16,21 +16,7 @@ composer install
 When you upload your site, make sure you're using the `production` tag in `.env` so that errors are not displayed on screen.
 
 ## Theme Cache
-Twig caches rendered templates. To do so, it requires permissions to write to the cache folder. Make sure the permissions are set to 775 in the `app/theme/.cache` folder.
+Twig has the ability to cache rendered templates. To do so, it requires permissions to write to the cache folder. You can set a directory for caching in youe .env file. If you do, don't forget to `chmod 775` on that directory.
 
-## Use it in other projects
-PHPSF2 is available as a Composer package so you can use it in your own projects. Just require it:
-```
-composer require chrismademe/php-site-framework-2
-```
-
-Then, include it in your project:
-```php
-<?php
-
-# Composer Autoloader
-require_once '/path/to/autoload.php';
-
-# Include PHPSF2 init.
-require_once '/vendor/chrismademe/php-site-framework-2/init.php';
-```
+### To do
+- Add Bower support
